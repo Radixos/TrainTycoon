@@ -1,7 +1,7 @@
-﻿using System.Collections;
+﻿//using System.Collections;
 using UnityEngine;
 
-public class CityProperties : MonoBehaviour
+public struct CityProperties
 {
     private string _cityName;
     private double _citizens;

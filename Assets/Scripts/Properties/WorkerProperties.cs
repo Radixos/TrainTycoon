@@ -1,7 +1,7 @@
-﻿using System.Collections;
+﻿//using System.Collections;
 using UnityEngine;
 
-public class WorkerProperties : MonoBehaviour
+public struct WorkerProperties
 {
     private string _workerName;
     private double _earnings;

@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿//using System.Collections;
 using UnityEngine;
 
-public class TrainProperties : MonoBehaviour
+public struct TrainProperties
 {
     private string _trainName;
     private double _price;
     public double _speedBonus;
     public double _happinessBonus;
+    public double _capacity;
 
     public string TrainName
     {
@@ -57,6 +58,19 @@ public class TrainProperties : MonoBehaviour
         set
         {
             _happinessBonus = value;
+        }
+    }
+
+    public double Capacity
+    {
+        get
+        {
+            return _capacity;
+        }
+
+        set
+        {
+            _capacity = value;
         }
     }
 }
