@@ -10,12 +10,11 @@ using System;
 //TODO: Make number of citizens willing to travel update only after dispatching train from chosen city, otherwise stay the same untill dispatched
 //TODO: Tie number of assets and dispatching trains together
 //TODO: Optimize earnings via adding expenses such as insurances, taxes, fuel, etc
-//TODO: Make additional panel pop up on clicking dispatch train to select what train and what worker to use.
+//TODO: Make additional panel pop up on clicking dispatch train to select what train and what worker to use
+//TODO: Fix camera so after it rotates it moves in local left, right, forward and backward insted of world directios
 
 public class TrainSystem : MonoBehaviour
 {
-    //TODO: Make something such as struct to hold parameters of each object
-
     //[System.Serializable]
     //public class SerializeCity
     //{
@@ -62,8 +61,10 @@ public class TrainSystem : MonoBehaviour
 
     public Slider ticketPriceSlider;
 
-    private float moneyAmount = 50000f;
+    private double moneyAmount = 50000f;
     public TMPro.TextMeshProUGUI MoneyAmountText;
+
+    HireWorker HireWorkerScript;
 
     private void DispatchTrain()
     {
@@ -81,15 +82,17 @@ public class TrainSystem : MonoBehaviour
 
         //if (moneyAmount >= (0 + ))
 
-        if (Input.GetKeyDown(KeyCode.LeftAlt))
-        {
-            //Input.GetButtonDown
-            moneyAmount -= 1000f;
-        }
+        //if (HireWorkerScript.Male1)
+        //{
+        //    //Input.GetButtonDown
+        //    moneyAmount -= HireWorkerScript.Female1.Earnings;
+        //}
     }
 
     void Start()
     {
+        HireWorkerScript = GetComponentInParent<HireWorker>();
+
         sendFromDropdown.onValueChanged.AddListener(delegate { DropdownValueChanged(sendFromDropdown); });
 
         //timeOfTravelText.text = "First Value: " + sendFromDropdown.value;

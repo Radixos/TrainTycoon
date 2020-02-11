@@ -50,57 +50,81 @@ public class HireWorker : MonoBehaviour
     public TextMeshProUGUI female3SpeedBonus;
     public TextMeshProUGUI female3HappinessBonus;
 
+    [System.Serializable]
+    public class WorkerPropertiesHolder
+    {
+        public string key;
+        public double earnings;
+        public double speedBonus;
+        public double happinessBonus;
+    }
+
+    public WorkerPropertiesHolder[] workers;
+
+    public Dictionary<string, WorkerProperties> workerDict = new Dictionary<string, WorkerProperties>();
+
     void Start()
     {
+        foreach (var w in workers)
+        {
+            WorkerProperties worker = new WorkerProperties();
+            worker.WorkerName = w.key;
+            worker.Earnings = w.earnings;
+            worker.SpeedBonus = w.speedBonus;
+            worker.HappinessBonus = w.happinessBonus;
+
+            workerDict.Add(worker.WorkerName, worker);
+        }
+
         //////////////////////Workers//////////////////////
 
-        Male1 = new WorkerProperties()
-        {
-            WorkerName = "Male1",
-            Earnings = 5E3,
-            SpeedBonus = 1.2,
-            HappinessBonus = 1.1
-        };
+        //Male1 = new WorkerProperties()
+        //{
+        //    WorkerName = "Male1",
+        //    Earnings = 5E3,
+        //    SpeedBonus = 1.2,
+        //    HappinessBonus = 1.1
+        //};
 
-        Male2 = new WorkerProperties()
-        {
-            WorkerName = "Male2",
-            Earnings = 35E2,
-            SpeedBonus = 1,
-            HappinessBonus = 0.9
-        };
+        //Male2 = new WorkerProperties()
+        //{
+        //    WorkerName = "Male2",
+        //    Earnings = 35E2,
+        //    SpeedBonus = 1,
+        //    HappinessBonus = 0.9
+        //};
 
-        Male3 = new WorkerProperties()
-        {
-            WorkerName = "Male3",
-            Earnings = 15E2,
-            SpeedBonus = 0.8,
-            HappinessBonus = 0.7
-        };
+        //Male3 = new WorkerProperties()
+        //{
+        //    WorkerName = "Male3",
+        //    Earnings = 15E2,
+        //    SpeedBonus = 0.8,
+        //    HappinessBonus = 0.7
+        //};
 
-        Female1 = new WorkerProperties()
-        {
-            WorkerName = "Female1",
-            Earnings = 5E3,
-            SpeedBonus = 1.1,
-            HappinessBonus = 1.2
-        };
+        //Female1 = new WorkerProperties()
+        //{
+        //    WorkerName = "Female1",
+        //    Earnings = 5E3,
+        //    SpeedBonus = 1.1,
+        //    HappinessBonus = 1.2
+        //};
 
-        Female2 = new WorkerProperties()
-        {
-            WorkerName = "Female2",
-            Earnings = 35E2,
-            SpeedBonus = 0.9,
-            HappinessBonus = 1
-        };
+        //Female2 = new WorkerProperties()
+        //{
+        //    WorkerName = "Female2",
+        //    Earnings = 35E2,
+        //    SpeedBonus = 0.9,
+        //    HappinessBonus = 1
+        //};
 
-        Female3 = new WorkerProperties()
-        {
-            WorkerName = "Female3",
-            Earnings = 15E2,
-            SpeedBonus = 0.7,
-            HappinessBonus = 0.8
-        };
+        //Female3 = new WorkerProperties()
+        //{
+        //    WorkerName = "Female3",
+        //    Earnings = 15E2,
+        //    SpeedBonus = 0.7,
+        //    HappinessBonus = 0.8
+        //};
 
         ////////////////////Male1////////////////////
         male1Earnings.text = "Salary: " + Male1.Earnings.ToString();

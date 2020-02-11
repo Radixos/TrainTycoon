@@ -1,7 +1,7 @@
 ﻿//using System.Collections;
 using UnityEngine;
 
-public struct WorkerProperties
+public class WorkerProperties
 {
     private string _workerName;
     private double _earnings;

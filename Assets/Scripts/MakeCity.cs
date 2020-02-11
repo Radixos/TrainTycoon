@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MakeCity : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class MakeCity : MonoBehaviour
     private CityProperties CloseToRussia;
     private CityProperties MountainCity;
     private CityProperties FaraonCity;
+
+    public TextMeshPro theCapitolCitizens;
+    public TextMeshPro almostSnowCitizens;
+    public TextMeshPro closeToRussiaCitizens;
+    public TextMeshPro mountainCityCitizens;
+    public TextMeshPro faraonCityCitizens;
 
     private int numberOfPassengers;
     private float passengerNumberVariation;
@@ -27,7 +34,7 @@ public class MakeCity : MonoBehaviour
         switch (TrainSystemScript.sendFromDropdown.value)
         {
             case 1:
-                if (TheCapitol.Citizens > 1E7 / 50)
+                if (TheCapitol.Citizens > 1E7 / 50)     //Assuming every 50th person wants to travel
                     tempNumberOfCitizens = (int)TheCapitol.Citizens;
 
                 Debug.Log("There are no passengers willing to travel from The Capitol.");
@@ -103,6 +110,12 @@ public class MakeCity : MonoBehaviour
             Citizens = 735E3,
             Balancer = 1.2
         };
+
+        theCapitolCitizens.text = "Citizens: " + TheCapitol.Citizens.ToString();
+        almostSnowCitizens.text = "Citizens: " + AlmostSnow.Citizens.ToString();
+        closeToRussiaCitizens.text = "Citizens: " + CloseToRussia.Citizens.ToString();
+        mountainCityCitizens.text = "Citizens: " + MountainCity.Citizens.ToString();
+        faraonCityCitizens.text = "Citizens: " + FaraonCity.Citizens.ToString();
     }
 
     void Update()

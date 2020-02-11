@@ -126,6 +126,7 @@ public class CameraController : MonoBehaviour
 
         float sgn = Mathf.Sign(Vector3.Dot(Vector3.up, Vector3.Cross(forward, CamForward)));
         angle *= sgn;
+        angle *= rotateAmount;
 
         return angle;
     }
