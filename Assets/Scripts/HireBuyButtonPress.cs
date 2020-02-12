@@ -9,8 +9,8 @@ public enum workers
 
 public class HireBuyButtonPress : MonoBehaviour
 {
-    BuyTrain BuyTrainScript;
-    HireWorker HireWorkerScript;
+    MakeTrain BuyTrainScript;
+    MakeWorker HireWorkerScript;
 
     GameObject ob;
 
@@ -24,7 +24,7 @@ public class HireBuyButtonPress : MonoBehaviour
 
     private void Start()
     {
-        BuyTrainScript = GetComponentInParent<BuyTrain>();
-        HireWorkerScript = GetComponentInParent<HireWorker>();
+        BuyTrainScript = GetComponentInParent<MakeTrain>();
+        HireWorkerScript = GetComponentInParent<MakeWorker>();
     }
 }

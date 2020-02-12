@@ -2,60 +2,73 @@
 using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
+using System;
+
+//TODO: make text fields above cities with number of citizens
+//TODO: make text fields above tracks/cities appear with ETA time
+//TODO: make number of citizens decrease in starting city on "dispatch train" button press and increase in destination city on arrival
+//TODO: Make number of citizens willing to travel update only after dispatching train from chosen city, otherwise stay the same untill dispatched
+//TODO: Tie number of assets and dispatching trains together
+//TODO: Optimize earnings via adding expenses such as insurances, taxes, fuel, etc
+//TODO: Make additional panel pop up on clicking dispatch train to select what train and what worker to use
+//TODO: Fix camera so after it rotates it moves in local left, right, forward and backward insted of world directios
+
 public class TrainSystem : MonoBehaviour
 {
-    [System.Serializable]
-    public class Serialize
-    {
-        public string value;
-        public GameObject go;
-    }
-    
-    public Dictionary<string, GameObject> dictionary = new Dictionary<string, GameObject>();
+    //[System.Serializable]
+    //public class SerializeCity
+    //{
+    //    public string value;
+    //    //public GameObject cityName;
+    //    public double citizens;
+    //    public double balancer;
+    //}
 
-    public List<Serialize> serializes = new List<Serialize>();
+    //public Dictionary<string, Tuple</*GameObject, */double, double>> cityDictionary = new Dictionary<string, Tuple</*GameObject, */double, double>>();
+    //public List<SerializeCity> citySerializes = new List<SerializeCity>();
+
+    //[System.Serializable]
+    //public class SerializeWorker
+    //{
+    //    public string value;
+    //    public GameObject worker;
+    //    public double earnings;
+    //    public double speedBonus;
+    //    public double happinessBonus;
+    //}
+
+    //public Dictionary<string, Tuple<GameObject, double, double, double>> workerDictionary = new Dictionary<string, Tuple<GameObject, double, double, double>>();
+    //public List<SerializeWorker> workerSerializes = new List<SerializeWorker>();
+
+    //[System.Serializable]
+    //public class SerializeTrains
+    //{
+    //    public string value;
+    //    public GameObject train;
+    //    public double price;
+    //    public double speedBonus;
+    //    public double happinessBonus;
+    //}
+
+    //public Dictionary<string, Tuple<GameObject, double, double, double>> trainDictionary = new Dictionary<string, Tuple<GameObject, double, double, double>>();
+    //public List<SerializeTrains> trainSerializes = new List<SerializeTrains>();
 
     public TMP_Dropdown sendFromDropdown;
     public TMP_Dropdown destinationDropdown;
 
-    private float timeOfTravel;
+    public float timeOfTravel;
     public TextMeshProUGUI timeOfTravelText;
 
     public Slider ticketPriceSlider;
 
-    public GameObject TheCapitol;
-    public GameObject AlmostSnow;
-    public GameObject CloseToRussia;
-    public GameObject MountainCity;
-    public GameObject FaraonCity;
-
-    public GameObject Male1;
-    public GameObject Male2;
-    public GameObject Male3;
-    public GameObject Female1;
-    public GameObject Female2;
-    public GameObject Female3;
-
-    public GameObject Train1;
-    public GameObject Train2;
-    public GameObject Train3;
-
-    private float moneyAmount = 50000f;
+    private double moneyAmount = 50000f;
     public TMPro.TextMeshProUGUI MoneyAmountText;
 
-    void MakeCity(GameObject cityName, double citizens, double balancer)
-    {
-        Debug.Log(cityName + " " + citizens + " " + balancer);
-    }
+    HireWorker HireWorkerScript;
 
-    void MakeWorker(GameObject workerName, double earnings, double speedBonus, double happinessBonus)
+    private void DispatchTrain()
     {
-        Debug.Log(workerName + " " + earnings + " " + speedBonus + " " + happinessBonus);
-    }
 
-    void MakeTrain(GameObject trainName, double price, double speedBonus, double happinessBonus)
-    {
-        Debug.Log(trainName + " " + price + " " + speedBonus + " " + happinessBonus);
     }
 
     void PassPrice()
@@ -69,38 +82,18 @@ public class TrainSystem : MonoBehaviour
 
         //if (moneyAmount >= (0 + ))
 
-        if (Input.GetKeyDown(KeyCode.LeftAlt))
-        {
-            //Input.GetButtonDown
-            moneyAmount -= 1000f;
-        }
+        //if (HireWorkerScript.Male1)
+        //{
+        //    //Input.GetButtonDown
+        //    moneyAmount -= HireWorkerScript.Female1.Earnings;
+        //}
     }
 
     void Start()
     {
-        foreach(var s in serializes)
-        {
-            dictionary.Add(s.value, s.go);
-            Debug.Log(s.go);
-        }
-        MakeCity(TheCapitol, 1E7, 0.8);  //10 000 000   add (float)1E7...??
-        MakeCity(AlmostSnow, 5E5, 1.3);  //500 000
-        MakeCity(CloseToRussia, 3E6, 1.05); //3 000 000
-        MakeCity(MountainCity, 222E4, 1.1); //2 220 000
-        MakeCity(FaraonCity, 735E3, 1.2);   //735 000
+        HireWorkerScript = GetComponentInParent<HireWorker>();
 
-        MakeWorker(Male1, 5E3, 1.2, 1.1);   //5 000     Solve double problem - should be int -> can be 5000 but not 5E3
-        MakeWorker(Male2, 35E2, 1, 0.9);    //3 500
-        MakeWorker(Male3, 15E2, 0.8, 0.7);  //1 500
-        MakeWorker(Female1, 5E3, 1.1, 1.2); //5 000
-        MakeWorker(Female2, 35E2, 0.9, 1);  //3 500
-        MakeWorker(Female3, 15E2, 0.7, 0.8);//1 500
-
-        MakeTrain(Train1, 1E5, 1.2, 1.1);   //100 000
-        MakeTrain(Train2, 3E4, 1.0, 1.0);   //30 000
-        MakeTrain(Train3, 1E4, 0.8, 0.8);   //10 000
-
-        sendFromDropdown.onValueChanged.AddListener(delegate { DropdownValueChanged(sendFromDropdown); } );
+        sendFromDropdown.onValueChanged.AddListener(delegate { DropdownValueChanged(sendFromDropdown); });
 
         //timeOfTravelText.text = "First Value: " + sendFromDropdown.value;
 
@@ -148,121 +141,121 @@ public class TrainSystem : MonoBehaviour
         if (sendFromDropdown.value == 1 & destinationDropdown.value == 2)
         {
             timeOfTravel = 5f;
-            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + "h";
+            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 1 & destinationDropdown.value == 3)
         {
             timeOfTravel = 6f;
-            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + "h";
+            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 1 & destinationDropdown.value == 4)
         {
             timeOfTravel = 3f;
-            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + "h";
+            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 1 & destinationDropdown.value == 5)
         {
             timeOfTravel = 4f;
-            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + "h";
+            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 2 & destinationDropdown.value == 1)
         {
             timeOfTravel = 5f;
-            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + "h";
+            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 2 & destinationDropdown.value == 3)
         {
             timeOfTravel = 2f;
-            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + "h";
+            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 2 & destinationDropdown.value == 4)
         {
             timeOfTravel = 8f;
-            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + "h";
+            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 2 & destinationDropdown.value == 5)
         {
             timeOfTravel = 9f;
-            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + "h";
+            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 3 & destinationDropdown.value == 1)
         {
             timeOfTravel = 6f;
-            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + "h";
+            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 3 & destinationDropdown.value == 2)
         {
             timeOfTravel = 2f;
-            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + "h";
+            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 3 & destinationDropdown.value == 4)
         {
             timeOfTravel = 9f;
-            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + "h";
+            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 3 & destinationDropdown.value == 5)
         {
             timeOfTravel = 10f;
-            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + "h";
+            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 4 & destinationDropdown.value == 1)
         {
             timeOfTravel = 3f;
-            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + "h";
+            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 4 & destinationDropdown.value == 2)
         {
             timeOfTravel = 8f;
-            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + "h";
+            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 4 & destinationDropdown.value == 3)
         {
             timeOfTravel = 9f;
-            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + "h";
+            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 4 & destinationDropdown.value == 5)
         {
             timeOfTravel = 7f;
-            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + "h";
+            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 5 & destinationDropdown.value == 1)
         {
             timeOfTravel = 4f;
-            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + "h";
+            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 5 & destinationDropdown.value == 2)
         {
             timeOfTravel = 9f;
-            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + "h";
+            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 5 & destinationDropdown.value == 3)
         {
             timeOfTravel = 10f;
-            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + "h";
+            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 5 & destinationDropdown.value == 4)
         {
             timeOfTravel = 7f;
-            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + "h";
+            timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
     }
 }

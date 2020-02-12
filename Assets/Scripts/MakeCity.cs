@@ -29,7 +29,7 @@ public class MakeCity : MonoBehaviour
     {
         passengerNumberVariation = UnityEngine.Random.Range(0f, 0.2f) * 100;
 
-        Debug.Log((int)passengerNumberVariation);
+        //Debug.Log((int)passengerNumberVariation);
 
         switch (TrainSystemScript.sendFromDropdown.value)
         {
@@ -65,7 +65,7 @@ public class MakeCity : MonoBehaviour
                 break;
         }
         numberOfPassengers = ((int)passengerNumberVariation * tempNumberOfCitizens) / numberOfPassengersBalancer;
-        Debug.Log(numberOfPassengers);
+        //Debug.Log(numberOfPassengers);
         return numberOfPassengers;
     }
 

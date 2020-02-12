@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class AssetsPurchasedController : MonoBehaviour
 {
-    HireWorker HireWorkerScript;
+    MakeWorker HireWorkerScript;
 
     private bool trainAvailable;
     private bool workerAvailable;
@@ -22,7 +22,7 @@ public class AssetsPurchasedController : MonoBehaviour
 
     private void Start()
     {
-        HireWorkerScript = GetComponentInParent<HireWorker>();
+        HireWorkerScript = GetComponentInParent<MakeWorker>();
     }
 
     void Update()

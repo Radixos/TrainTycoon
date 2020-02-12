@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class MoneyDisplay : MonoBehaviour
 {
-    private float moneyAmount = 50000f;
-    public TMPro.TextMeshProUGUI MoneyAmountText;
+    public float moneyAmount = 50000f;
+    public TMPro.TextMeshProUGUI moneyAmountDisplayText;
     
     void Update()
     {
-        MoneyAmountText.text = moneyAmount.ToString() + " £";
+        moneyAmountDisplayText.text = moneyAmount.ToString()/* + " £"*/;
 
         if(Input.GetKeyDown(KeyCode.LeftAlt))
         {

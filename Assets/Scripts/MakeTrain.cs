@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class BuyTrain : MonoBehaviour
+public class MakeTrain : MonoBehaviour
 {
-    private TrainProperties Train1;
-    private TrainProperties Train2;
-    private TrainProperties Train3;
+    public TrainProperties Train1;
+    public TrainProperties Train2;
+    public TrainProperties Train3;
 
     ////////////////////Train1////////////////////
     public TextMeshProUGUI train1Price;
@@ -75,10 +75,5 @@ public class BuyTrain : MonoBehaviour
         train3SpeedBonus.text = "Speed Bonus: " + Train3.SpeedBonus.ToString();
         train3HappinessBonus.text = "Happiness Bonus: " + Train3.HappinessBonus.ToString();
         train3Capacity.text = "Capacity: " + Train3.Capacity.ToString();
-    }
-
-    void Update()
-    {
-        
     }
 }
