@@ -64,7 +64,7 @@ public class TrainSystem : MonoBehaviour
     private double moneyAmount = 50000f;
     public TMPro.TextMeshProUGUI MoneyAmountText;
 
-    HireWorker HireWorkerScript;
+    MakeWorker HireWorkerScript;
 
     private void DispatchTrain()
     {
@@ -78,7 +78,7 @@ public class TrainSystem : MonoBehaviour
 
     void MoneyUpdate()
     {
-        MoneyAmountText.text = moneyAmount.ToString() + " £";
+        //MoneyAmountText.text = moneyAmount.ToString() + " £";
 
         //if (moneyAmount >= (0 + ))
 
@@ -91,7 +91,7 @@ public class TrainSystem : MonoBehaviour
 
     void Start()
     {
-        HireWorkerScript = GetComponentInParent<HireWorker>();
+        HireWorkerScript = GetComponentInParent<MakeWorker>();
 
         sendFromDropdown.onValueChanged.AddListener(delegate { DropdownValueChanged(sendFromDropdown); });
 

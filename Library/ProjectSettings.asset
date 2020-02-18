@@ -640,6 +640,8 @@ PlayerSettings:
   cloudServicesEnabled:
     Build: 0
     Collab: 1
+    ErrorHub: 0
+    Hub: 0
     UNet: 1
   luminIcon:
     m_Name: 
@@ -665,6 +667,6 @@ PlayerSettings:
   projectName: Train Tycoon
   organizationId: radixo
   cloudEnabled: 0
-  enableNativePlatformBackendsForNewInputSystem: 0
+  enableNativePlatformBackendsForNewInputSystem: 1
   disableOldInputManagerSupport: 0
   legacyClampBlendShapeWeights: 0

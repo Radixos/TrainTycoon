@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using TMPro;
 using System;
 
-//TODO: make text fields above cities with number of citizens
 //TODO: make text fields above tracks/cities appear with ETA time
 //TODO: make number of citizens decrease in starting city on "dispatch train" button press and increase in destination city on arrival
 //TODO: Make number of citizens willing to travel update only after dispatching train from chosen city, otherwise stay the same untill dispatched
