@@ -4,23 +4,16 @@ using UnityEngine;
 using TMPro;
 using System;
 
-//using UnityEngine.EventSystems;
-
 public class BuyHirePressed : MonoBehaviour
 {
-    public double moneyAmount;
     public GameObject go;
-    public TextMeshProUGUI moneyAmountText;
     public TextMeshProUGUI assetsAmount;
     public TextMeshProUGUI trainAssetBought;
     public TextMeshProUGUI staffAssetBought;
-    //public GameObject UI;
     MakeTrain MakeTrainScript;
     MakeWorker MakeWorkerScript;
-    MoneyDisplay MoneyText;
     private double Price;
     private bool functionIsTriggered = false;
-    //var go = EventSystem.current.currentSelectedGameObject;
 
     public double UIButtonPressed()
     {
@@ -75,7 +68,6 @@ public class BuyHirePressed : MonoBehaviour
 
         functionIsTriggered = true;
         return Price;
-        //moneyUpdateText.text = MakeTrainScript.Train1.Price + " £";
     }
 
     private void trainAssetBoughtMessage()
@@ -117,9 +109,15 @@ public class BuyHirePressed : MonoBehaviour
 
     public void UpdateMoney()
     {
-        moneyAmount -= UIButtonPressed();
-        //moneyAmountText.text = /*(MoneyText.moneyAmount - UIButtonPressed())*/(moneyAmount - UIButtonPressed()).ToString();
-        Debug.Log("I should update!");
+        if(LevelManager.instance.moneyAmount - Price >= 0)
+        {
+            LevelManager.instance.moneyAmount -= UIButtonPressed();
+            Debug.Log("I should update!");
+        }
+        else
+        {
+            Debug.Log("UpdateMoney function error");
+        }
     }
 
     void Start()
@@ -137,17 +135,17 @@ public class BuyHirePressed : MonoBehaviour
         }
 
         assetsAmount.text = "0";
-        //moneyAmountText.text = moneyAmount.ToString()/* + " £"*/;
+
         MakeTrainScript = GetComponentInParent<MakeTrain>();
         MakeWorkerScript = GetComponentInParent<MakeWorker>();
-        //MoneyText = UI.GetComponent<MoneyDisplay>();
     }
 
     void Update()
     {
         if(functionIsTriggered == true)
         {
-            moneyAmountText.text = moneyAmount.ToString();
+            LevelManager.instance.moneyAmount -= Price;
+            LevelManager.instance.UpdateMoneyDisplay();
             functionIsTriggered = false;
         }
     }

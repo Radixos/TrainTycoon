@@ -51,18 +51,22 @@ public class FuzzyTrain : MonoBehaviour
     {
         
     }
+
     public void EvaluateTravellersHappiness()
     {
         //(ticketPriceSlider.value / 250f);
     }
+
     public void EvaluateProfitHappiness()
     {
 
     }
+
     public void EvaluateTravellingAttractiveness()
     {
 
     }
+
     public void EvaluateStaffEfficiency()
     {
 

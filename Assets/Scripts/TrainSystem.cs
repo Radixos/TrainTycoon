@@ -11,6 +11,7 @@ using System;
 //TODO: Optimize earnings via adding expenses such as insurances, taxes, fuel, etc
 //TODO: Make additional panel pop up on clicking dispatch train to select what train and what worker to use
 //TODO: Fix camera so after it rotates it moves in local left, right, forward and backward insted of world directios
+//TODO: Move stuff to LevelManager.cs
 
 public class TrainSystem : MonoBehaviour
 {
@@ -65,28 +66,17 @@ public class TrainSystem : MonoBehaviour
 
     MakeWorker HireWorkerScript;
 
-    private void DispatchTrain()
-    {
+    //#region FakeSingleton
+    //public static TrainSystem instance;
 
-    }
-
-    void PassPrice()
-    {
-        //Debug.Log(ticketPriceSlider.value.ToString() /*ticketPriceSlider.onValueChanged.ToString()*/);
-    }
-
-    void MoneyUpdate()
-    {
-        //MoneyAmountText.text = moneyAmount.ToString() + " £";
-
-        //if (moneyAmount >= (0 + ))
-
-        //if (HireWorkerScript.Male1)
-        //{
-        //    //Input.GetButtonDown
-        //    moneyAmount -= HireWorkerScript.Female1.Earnings;
-        //}
-    }
+    //private void Awake()
+    //{
+    //    if (instance == null)
+    //    {
+    //        instance = this;
+    //    }
+    //}
+    //#endregion
 
     void Start()
     {
@@ -103,8 +93,7 @@ public class TrainSystem : MonoBehaviour
 
     private void Update()
     {
-        PassPrice();
-        MoneyUpdate();
+
     }
 
     void DropdownValueChanged(TMP_Dropdown change)

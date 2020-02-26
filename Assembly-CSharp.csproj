@@ -67,10 +67,11 @@
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Controls.cs" />
     <Compile Include="Assets\Scripts\Destroyer.cs" />
+    <Compile Include="Assets\Scripts\DispatchTrain.cs" />
     <Compile Include="Assets\Scripts\FuzzyTrain.cs" />
     <Compile Include="Assets\Scripts\HappinessDisplay.cs" />
-    <Compile Include="Assets\Scripts\HireBuyButtonPress.cs" />
     <Compile Include="Assets\Scripts\LevelLoader.cs" />
+    <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\LightingManager.cs" />
     <Compile Include="Assets\Scripts\LightingPreset.cs" />
     <Compile Include="Assets\Scripts\LookTowardsCamera.cs" />
@@ -79,12 +80,12 @@
     <Compile Include="Assets\Scripts\MakeTrain.cs" />
     <Compile Include="Assets\Scripts\MakeWorker.cs" />
     <Compile Include="Assets\Scripts\MinimapScript.cs" />
-    <Compile Include="Assets\Scripts\MoneyDisplay.cs" />
     <Compile Include="Assets\Scripts\MoveCloud.cs" />
     <Compile Include="Assets\Scripts\OnClickBuyHire\BuyHirePressed.cs" />
     <Compile Include="Assets\Scripts\OnMouseHover.cs" />
     <Compile Include="Assets\Scripts\OnMouseOverObject.cs" />
     <Compile Include="Assets\Scripts\OpenScenePanel.cs" />
+    <Compile Include="Assets\Scripts\PanelControler.cs" />
     <Compile Include="Assets\Scripts\Properties\CityProperties.cs" />
     <Compile Include="Assets\Scripts\Properties\TrainProperties.cs" />
     <Compile Include="Assets\Scripts\Properties\WorkerProperties.cs" />
