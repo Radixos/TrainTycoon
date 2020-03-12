@@ -35,8 +35,9 @@ public class DispatchTrain : MonoBehaviour
         LevelManager.instance.staffHappiness = 50;
 
         //TODO: FIX EQUATION BELOW
-
-        LevelManager.instance.passengersHappiness += (((-(int)ticketPriceSlider.value/250) * 100) + ((int)TrainSystemScript.timeOfTravel/12) * 100);
+        //if(TrainSystemScript.timeOfTravel.GetType() != "string")
+        LevelManager.instance.passengersHappiness += (((-((int)ticketPriceSlider.value + 25)/(25+25)) * 10) + ((-(TrainSystemScript.timeOfTravel + 25)/(25+25)) * 10));
+        //Debug.Log(TrainSystemScript.timeOfTravel);
         LevelManager.instance.UpdatePassengersHappinessDisplay();
         LevelManager.instance.passengersHappiness = 50;
     }

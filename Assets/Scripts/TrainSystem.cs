@@ -12,6 +12,7 @@ using System;
 //TODO: Make additional panel pop up on clicking dispatch train to select what train and what worker to use
 //TODO: Fix camera so after it rotates it moves in local left, right, forward and backward insted of world directios
 //TODO: Move stuff to LevelManager.cs
+//TODO: Fix IfPanelActiveCloseOther script
 
 public class TrainSystem : MonoBehaviour
 {
@@ -56,7 +57,7 @@ public class TrainSystem : MonoBehaviour
     public TMP_Dropdown sendFromDropdown;
     public TMP_Dropdown destinationDropdown;
 
-    public float timeOfTravel;
+    public int timeOfTravel;
     public TextMeshProUGUI timeOfTravelText;
 
     public Slider ticketPriceSlider;
@@ -96,7 +97,7 @@ public class TrainSystem : MonoBehaviour
 
     }
 
-    void DropdownValueChanged(TMP_Dropdown change)
+    public void DropdownValueChanged(TMP_Dropdown change)
     {
         //timeOfTravelText.text = "Wrong destination" + change.value;
 
@@ -128,121 +129,121 @@ public class TrainSystem : MonoBehaviour
 
         if (sendFromDropdown.value == 1 & destinationDropdown.value == 2)
         {
-            timeOfTravel = 5f;
+            timeOfTravel = 5;
             timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 1 & destinationDropdown.value == 3)
         {
-            timeOfTravel = 6f;
+            timeOfTravel = 6;
             timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 1 & destinationDropdown.value == 4)
         {
-            timeOfTravel = 3f;
+            timeOfTravel = 3;
             timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 1 & destinationDropdown.value == 5)
         {
-            timeOfTravel = 4f;
+            timeOfTravel = 4;
             timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 2 & destinationDropdown.value == 1)
         {
-            timeOfTravel = 5f;
+            timeOfTravel = 5;
             timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 2 & destinationDropdown.value == 3)
         {
-            timeOfTravel = 2f;
+            timeOfTravel = 2;
             timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 2 & destinationDropdown.value == 4)
         {
-            timeOfTravel = 8f;
+            timeOfTravel = 8;
             timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 2 & destinationDropdown.value == 5)
         {
-            timeOfTravel = 9f;
+            timeOfTravel = 9;
             timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 3 & destinationDropdown.value == 1)
         {
-            timeOfTravel = 6f;
+            timeOfTravel = 6;
             timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 3 & destinationDropdown.value == 2)
         {
-            timeOfTravel = 2f;
+            timeOfTravel = 2;
             timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 3 & destinationDropdown.value == 4)
         {
-            timeOfTravel = 9f;
+            timeOfTravel = 9;
             timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 3 & destinationDropdown.value == 5)
         {
-            timeOfTravel = 10f;
+            timeOfTravel = 10;
             timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 4 & destinationDropdown.value == 1)
         {
-            timeOfTravel = 3f;
+            timeOfTravel = 3;
             timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 4 & destinationDropdown.value == 2)
         {
-            timeOfTravel = 8f;
+            timeOfTravel = 8;
             timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 4 & destinationDropdown.value == 3)
         {
-            timeOfTravel = 9f;
+            timeOfTravel = 9;
             timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 4 & destinationDropdown.value == 5)
         {
-            timeOfTravel = 7f;
+            timeOfTravel = 7;
             timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 5 & destinationDropdown.value == 1)
         {
-            timeOfTravel = 4f;
+            timeOfTravel = 4;
             timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 5 & destinationDropdown.value == 2)
         {
-            timeOfTravel = 9f;
+            timeOfTravel = 9;
             timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 5 & destinationDropdown.value == 3)
         {
-            timeOfTravel = 10f;
+            timeOfTravel = 10;
             timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
 
         if (sendFromDropdown.value == 5 & destinationDropdown.value == 4)
         {
-            timeOfTravel = 7f;
+            timeOfTravel = 7;
             timeOfTravelText.text = "Time of Travel:\n" + timeOfTravel.ToString() + " h";
         }
     }

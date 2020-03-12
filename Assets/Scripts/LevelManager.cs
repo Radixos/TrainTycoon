@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateMoneyDisplay(); 
+        UpdateMoneyDisplay();
     }
 
     public void UpdateMoneyDisplay()

@@ -14,10 +14,15 @@ public class AssetsPurchasedController : MonoBehaviour
     private bool CanTrainBeDispatched()
     {
         if (trainAvailable == true && workerAvailable == true)
+        {
+            Debug.Log("Train can be dispatched");
             return true;
-
-        Debug.Log("Train can not be dispatched.");
-        return false;
+        }
+        else
+        {
+            Debug.Log("Train can not be dispatched. Not enough assets.");
+            return false;
+        }
     }
 
     private void Start()

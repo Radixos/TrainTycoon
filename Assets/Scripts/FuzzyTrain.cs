@@ -39,7 +39,7 @@ public class FuzzyTrain : MonoBehaviour
     {
         if(timeOfTravelText.text == "Wrong destination")
         {
-            Debug.Log("Time read problem, wrong destination problem");
+            Debug.Log("Time read problem - wrong destination problem");
         }
         else
         {
