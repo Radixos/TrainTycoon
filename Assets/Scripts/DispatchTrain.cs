@@ -11,6 +11,7 @@ public class DispatchTrain : MonoBehaviour
     public Slider staffBonusSlider;
     public Toggle foodAndDrinks;
 
+
     public TextMeshProUGUI staffHappinessText;
 
     public GameObject UI;
@@ -59,4 +60,11 @@ public class DispatchTrain : MonoBehaviour
         //Debug.Log(factor);
         factor = 0f;
     }
+
+    void ConfirmDispatch()
+    {
+        //if (Male1.GetComponent<Button>().onClick.AddListener(StaffPick))
+    }
+
+
 }

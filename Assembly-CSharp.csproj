@@ -63,6 +63,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AssetButtonClickedTrigger.cs" />
+    <Compile Include="Assets\Scripts\AssetClicked.cs" />
     <Compile Include="Assets\Scripts\AssetsPurchasedController.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Controls.cs" />
@@ -86,7 +88,6 @@
     <Compile Include="Assets\Scripts\OnMouseHover.cs" />
     <Compile Include="Assets\Scripts\OnMouseOverObject.cs" />
     <Compile Include="Assets\Scripts\OpenScenePanel.cs" />
-    <Compile Include="Assets\Scripts\PanelControler.cs" />
     <Compile Include="Assets\Scripts\Properties\CityProperties.cs" />
     <Compile Include="Assets\Scripts\Properties\TrainProperties.cs" />
     <Compile Include="Assets\Scripts\Properties\WorkerProperties.cs" />
