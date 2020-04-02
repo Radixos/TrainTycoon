@@ -2826,9 +2826,8 @@ GameObject:
   - component: {fileID: 71474255}
   - component: {fileID: 71474254}
   - component: {fileID: 71474256}
-  - component: {fileID: 71474257}
   m_Layer: 5
-  m_Name: Female2N
+  m_Name: Female2Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2930,37 +2929,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &71474257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71474252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1fd1cd188e03db4eb210c8e5034ed5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentGO: {fileID: 71474252}
-  Male1: {fileID: 2045079019}
-  Male2: {fileID: 828289950}
-  Male3: {fileID: 434275061}
-  Female1: {fileID: 1649408291}
-  Female2: {fileID: 71474252}
-  Female3: {fileID: 434775772}
-  Train1: {fileID: 1826383043}
-  Train2: {fileID: 976914676}
-  Train3: {fileID: 757900780}
-  Male1Original: {fileID: 1905068258}
-  Male2Original: {fileID: 1368279332}
-  Male3Original: {fileID: 845107406}
-  Female1Original: {fileID: 1649217596}
-  Female2Original: {fileID: 911429305}
-  Female3Original: {fileID: 1961944919}
-  Train1Original: {fileID: 54616241}
-  Train2Original: {fileID: 484963781}
-  Train3Original: {fileID: 1426785830}
 --- !u!4 &71713844 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: e9221da33b909aa4ba67288f4cfde3d4,
@@ -19378,9 +19346,8 @@ GameObject:
   - component: {fileID: 434275064}
   - component: {fileID: 434275063}
   - component: {fileID: 434275065}
-  - component: {fileID: 434275066}
   m_Layer: 5
-  m_Name: Male3N
+  m_Name: Male3Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19482,37 +19449,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &434275066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 434275061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1fd1cd188e03db4eb210c8e5034ed5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentGO: {fileID: 434275061}
-  Male1: {fileID: 2045079019}
-  Male2: {fileID: 828289950}
-  Male3: {fileID: 434275061}
-  Female1: {fileID: 1649408291}
-  Female2: {fileID: 71474252}
-  Female3: {fileID: 434775772}
-  Train1: {fileID: 1826383043}
-  Train2: {fileID: 976914676}
-  Train3: {fileID: 757900780}
-  Male1Original: {fileID: 1905068258}
-  Male2Original: {fileID: 1368279332}
-  Male3Original: {fileID: 845107406}
-  Female1Original: {fileID: 1649217596}
-  Female2Original: {fileID: 911429305}
-  Female3Original: {fileID: 1961944919}
-  Train1Original: {fileID: 54616241}
-  Train2Original: {fileID: 484963781}
-  Train3Original: {fileID: 1426785830}
 --- !u!1001 &434695782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19594,9 +19530,8 @@ GameObject:
   - component: {fileID: 434775775}
   - component: {fileID: 434775774}
   - component: {fileID: 434775776}
-  - component: {fileID: 434775777}
   m_Layer: 5
-  m_Name: Female3N
+  m_Name: Female3Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19698,37 +19633,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &434775777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 434775772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1fd1cd188e03db4eb210c8e5034ed5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentGO: {fileID: 434775772}
-  Male1: {fileID: 2045079019}
-  Male2: {fileID: 828289950}
-  Male3: {fileID: 434275061}
-  Female1: {fileID: 1649408291}
-  Female2: {fileID: 71474252}
-  Female3: {fileID: 434775772}
-  Train1: {fileID: 1826383043}
-  Train2: {fileID: 976914676}
-  Train3: {fileID: 757900780}
-  Male1Original: {fileID: 1905068258}
-  Male2Original: {fileID: 1368279332}
-  Male3Original: {fileID: 845107406}
-  Female1Original: {fileID: 1649217596}
-  Female2Original: {fileID: 911429305}
-  Female3Original: {fileID: 1961944919}
-  Train1Original: {fileID: 54616241}
-  Train2Original: {fileID: 484963781}
-  Train3Original: {fileID: 1426785830}
 --- !u!4 &434845238 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3650301318502385421, guid: b7e4702cadbc94f4d8e00eb1812c7501,
@@ -30858,9 +30762,8 @@ GameObject:
   - component: {fileID: 757900783}
   - component: {fileID: 757900782}
   - component: {fileID: 757900784}
-  - component: {fileID: 757900785}
   m_Layer: 5
-  m_Name: Train3N
+  m_Name: Train3Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30962,37 +30865,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &757900785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 757900780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1fd1cd188e03db4eb210c8e5034ed5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentGO: {fileID: 757900780}
-  Male1: {fileID: 2045079019}
-  Male2: {fileID: 828289950}
-  Male3: {fileID: 434275061}
-  Female1: {fileID: 1649408291}
-  Female2: {fileID: 71474252}
-  Female3: {fileID: 434775772}
-  Train1: {fileID: 1826383043}
-  Train2: {fileID: 976914676}
-  Train3: {fileID: 757900780}
-  Male1Original: {fileID: 1905068258}
-  Male2Original: {fileID: 1368279332}
-  Male3Original: {fileID: 845107406}
-  Female1Original: {fileID: 1649217596}
-  Female2Original: {fileID: 911429305}
-  Female3Original: {fileID: 1961944919}
-  Train1Original: {fileID: 54616241}
-  Train2Original: {fileID: 484963781}
-  Train3Original: {fileID: 1426785830}
 --- !u!1001 &757904532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31706,7 +31578,7 @@ GameObject:
   - component: {fileID: 774115238}
   - component: {fileID: 774115237}
   m_Layer: 5
-  m_Name: ChooseStaffMessage (1)
+  m_Name: ChooseStaffMessage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33890,9 +33762,8 @@ GameObject:
   - component: {fileID: 828289953}
   - component: {fileID: 828289952}
   - component: {fileID: 828289954}
-  - component: {fileID: 828289955}
   m_Layer: 5
-  m_Name: Male2N
+  m_Name: Male2Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33994,37 +33865,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &828289955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828289950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1fd1cd188e03db4eb210c8e5034ed5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentGO: {fileID: 828289950}
-  Male1: {fileID: 2045079019}
-  Male2: {fileID: 828289950}
-  Male3: {fileID: 434275061}
-  Female1: {fileID: 1649408291}
-  Female2: {fileID: 71474252}
-  Female3: {fileID: 434775772}
-  Train1: {fileID: 1826383043}
-  Train2: {fileID: 976914676}
-  Train3: {fileID: 757900780}
-  Male1Original: {fileID: 1905068258}
-  Male2Original: {fileID: 1368279332}
-  Male3Original: {fileID: 845107406}
-  Female1Original: {fileID: 1649217596}
-  Female2Original: {fileID: 911429305}
-  Female3Original: {fileID: 1961944919}
-  Train1Original: {fileID: 54616241}
-  Train2Original: {fileID: 484963781}
-  Train3Original: {fileID: 1426785830}
 --- !u!1001 &828385858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36927,7 +36767,6 @@ GameObject:
   - component: {fileID: 890045972}
   - component: {fileID: 890045971}
   - component: {fileID: 890045970}
-  - component: {fileID: 890045973}
   m_Layer: 5
   m_Name: ChooseAssets
   m_TagString: Untagged
@@ -36978,6 +36817,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44cd746df52d7e4bb856fc1d1c795ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ConfirmButton: {fileID: 1768298561}
+  Male1: {fileID: 2045079019}
+  Male2: {fileID: 828289950}
+  Male3: {fileID: 434275061}
+  Female1: {fileID: 1649408291}
+  Female2: {fileID: 71474252}
+  Female3: {fileID: 434775772}
+  Train1: {fileID: 1826383043}
+  Train2: {fileID: 976914676}
+  Train3: {fileID: 757900780}
+  Male1Original: {fileID: 1905068258}
+  Male2Original: {fileID: 1368279332}
+  Male3Original: {fileID: 845107406}
+  Female1Original: {fileID: 1649217596}
+  Female2Original: {fileID: 911429305}
+  Female3Original: {fileID: 1961944919}
+  Train1Original: {fileID: 54616241}
+  Train2Original: {fileID: 484963781}
+  Train3Original: {fileID: 1426785830}
+  chooseStaff: {fileID: 774115237}
+  chooseTrain: {fileID: 1761733678}
+  green: {fileID: 11400000, guid: 16e8dfd2256a4024a8b0512597d3bf3e, type: 2}
+  red: {fileID: 11400000, guid: 43a7d8dd606d10a4e8a54cc537ade4b5, type: 2}
 --- !u!114 &890045971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37014,66 +36876,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890045968}
   m_CullTransparentMesh: 0
---- !u!114 &890045973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 890045968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9ceb7d9e165d9847b49f3526d7740ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ButtonsToTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1826383048}
-        m_MethodName: TrainPick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 976914681}
-        m_MethodName: TrainPick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2045079024}
-        m_MethodName: StaffPick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 828289955}
-        m_MethodName: StaffPick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  panel: {fileID: 890045968}
 --- !u!1 &890874422
 GameObject:
   m_ObjectHideFlags: 0
@@ -41734,9 +41536,8 @@ GameObject:
   - component: {fileID: 976914679}
   - component: {fileID: 976914678}
   - component: {fileID: 976914680}
-  - component: {fileID: 976914681}
   m_Layer: 5
-  m_Name: Train2N
+  m_Name: Train2Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41838,37 +41639,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &976914681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976914676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1fd1cd188e03db4eb210c8e5034ed5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentGO: {fileID: 976914676}
-  Male1: {fileID: 2045079019}
-  Male2: {fileID: 828289950}
-  Male3: {fileID: 434275061}
-  Female1: {fileID: 1649408291}
-  Female2: {fileID: 71474252}
-  Female3: {fileID: 434775772}
-  Train1: {fileID: 1826383043}
-  Train2: {fileID: 976914676}
-  Train3: {fileID: 757900780}
-  Male1Original: {fileID: 1905068258}
-  Male2Original: {fileID: 1368279332}
-  Male3Original: {fileID: 845107406}
-  Female1Original: {fileID: 1649217596}
-  Female2Original: {fileID: 911429305}
-  Female3Original: {fileID: 1961944919}
-  Train1Original: {fileID: 54616241}
-  Train2Original: {fileID: 484963781}
-  Train3Original: {fileID: 1426785830}
 --- !u!4 &977173162 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3650301318502385421, guid: b7e4702cadbc94f4d8e00eb1812c7501,
@@ -67686,9 +67456,8 @@ GameObject:
   - component: {fileID: 1649408294}
   - component: {fileID: 1649408293}
   - component: {fileID: 1649408295}
-  - component: {fileID: 1649408296}
   m_Layer: 5
-  m_Name: Female1N
+  m_Name: Female1Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67790,37 +67559,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1649408296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1649408291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1fd1cd188e03db4eb210c8e5034ed5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentGO: {fileID: 1649408291}
-  Male1: {fileID: 2045079019}
-  Male2: {fileID: 828289950}
-  Male3: {fileID: 434275061}
-  Female1: {fileID: 1649408291}
-  Female2: {fileID: 71474252}
-  Female3: {fileID: 434775772}
-  Train1: {fileID: 1826383043}
-  Train2: {fileID: 976914676}
-  Train3: {fileID: 757900780}
-  Male1Original: {fileID: 1905068258}
-  Male2Original: {fileID: 1368279332}
-  Male3Original: {fileID: 845107406}
-  Female1Original: {fileID: 1649217596}
-  Female2Original: {fileID: 911429305}
-  Female3Original: {fileID: 1961944919}
-  Train1Original: {fileID: 54616241}
-  Train2Original: {fileID: 484963781}
-  Train3Original: {fileID: 1426785830}
 --- !u!1 &1650763806
 GameObject:
   m_ObjectHideFlags: 0
@@ -72699,6 +72437,7 @@ GameObject:
   - component: {fileID: 1768298558}
   - component: {fileID: 1768298560}
   - component: {fileID: 1768298559}
+  - component: {fileID: 1768298561}
   m_Layer: 5
   m_Name: Confirm
   m_TagString: Untagged
@@ -72844,6 +72583,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1768298557}
   m_CullTransparentMesh: 0
+--- !u!114 &1768298561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768298557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1768298559}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1768925579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76375,9 +76157,8 @@ GameObject:
   - component: {fileID: 1826383046}
   - component: {fileID: 1826383045}
   - component: {fileID: 1826383047}
-  - component: {fileID: 1826383048}
   m_Layer: 5
-  m_Name: Train1N
+  m_Name: Train1Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76479,37 +76260,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1826383048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826383043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1fd1cd188e03db4eb210c8e5034ed5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentGO: {fileID: 1826383043}
-  Male1: {fileID: 2045079019}
-  Male2: {fileID: 828289950}
-  Male3: {fileID: 434275061}
-  Female1: {fileID: 1649408291}
-  Female2: {fileID: 71474252}
-  Female3: {fileID: 434775772}
-  Train1: {fileID: 1826383043}
-  Train2: {fileID: 976914676}
-  Train3: {fileID: 757900780}
-  Male1Original: {fileID: 1905068258}
-  Male2Original: {fileID: 1368279332}
-  Male3Original: {fileID: 845107406}
-  Female1Original: {fileID: 1649217596}
-  Female2Original: {fileID: 911429305}
-  Female3Original: {fileID: 1961944919}
-  Train1Original: {fileID: 54616241}
-  Train2Original: {fileID: 484963781}
-  Train3Original: {fileID: 1426785830}
 --- !u!1001 &1826864201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84835,7 +84585,6 @@ GameObject:
   - component: {fileID: 2043985677}
   - component: {fileID: 2043985679}
   - component: {fileID: 2043985678}
-  - component: {fileID: 2043985680}
   m_Layer: 5
   m_Name: AssetsPanel
   m_TagString: Untagged
@@ -84907,18 +84656,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2043985676}
   m_CullTransparentMesh: 0
---- !u!114 &2043985680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2043985676}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d44cd746df52d7e4bb856fc1d1c795ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2044558175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85000,9 +84737,8 @@ GameObject:
   - component: {fileID: 2045079022}
   - component: {fileID: 2045079021}
   - component: {fileID: 2045079023}
-  - component: {fileID: 2045079024}
   m_Layer: 5
-  m_Name: Male1N
+  m_Name: Male1Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85104,37 +84840,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2045079024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2045079019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1fd1cd188e03db4eb210c8e5034ed5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentGO: {fileID: 2045079019}
-  Male1: {fileID: 2045079019}
-  Male2: {fileID: 828289950}
-  Male3: {fileID: 434275061}
-  Female1: {fileID: 1649408291}
-  Female2: {fileID: 71474252}
-  Female3: {fileID: 434775772}
-  Train1: {fileID: 1826383043}
-  Train2: {fileID: 976914676}
-  Train3: {fileID: 757900780}
-  Male1Original: {fileID: 1905068258}
-  Male2Original: {fileID: 1368279332}
-  Male3Original: {fileID: 845107406}
-  Female1Original: {fileID: 1649217596}
-  Female2Original: {fileID: 911429305}
-  Female3Original: {fileID: 1961944919}
-  Train1Original: {fileID: 54616241}
-  Train2Original: {fileID: 484963781}
-  Train3Original: {fileID: 1426785830}
 --- !u!1001 &2045430147
 PrefabInstance:
   m_ObjectHideFlags: 0
