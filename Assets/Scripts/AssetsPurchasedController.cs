@@ -10,6 +10,16 @@ public class AssetsPurchasedController : MonoBehaviour
 {
     public Button ConfirmButton;
 
+    [HideInInspector]
+    public bool confirmed = false;
+    public string trainType;
+    public string staffType;
+
+    public GameObject sendFrom;
+    public GameObject sendTo;
+
+    public GameObject confirmPanel;
+
     public GameObject Male1;
     public GameObject Male2;
     public GameObject Male3;
@@ -44,11 +54,30 @@ public class AssetsPurchasedController : MonoBehaviour
     private bool staffPicked = false;
     private bool trainPicked = false;
 
+    [SerializeField]
+    private TextMeshProUGUI departureCityTemplate;
+    private TextMeshProUGUI destinationCityTemplate;
+    private TextMeshProUGUI trainPickedTemplate;
+    private TextMeshProUGUI staffPickedTemplate;
+    private TextMeshProUGUI ETATemplate;
+
     public TextMeshProUGUI chooseStaff;
     public TextMeshProUGUI chooseTrain;
 
     public TMP_ColorGradient green;
     public TMP_ColorGradient red;
+
+    #region FakeSingleton
+    public static AssetsPurchasedController instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+    #endregion
 
     void UpdateAssets()
     {
@@ -103,15 +132,15 @@ public class AssetsPurchasedController : MonoBehaviour
     {
         if (Male1.GetComponentInChildren<TextMeshProUGUI>().text != "XX")
         {
-            Male1Original.GetComponentInChildren<TextMeshProUGUI>().text = Male1.GetComponentInChildren<TextMeshProUGUI>().text;
+            Male1Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Male1.GetComponentInChildren<TextMeshProUGUI>().text);
         }
         if (Male2.GetComponentInChildren<TextMeshProUGUI>().text != "XX")
         {
-            Male2Original.GetComponentInChildren<TextMeshProUGUI>().text = Male2.GetComponentInChildren<TextMeshProUGUI>().text;
+            Male2Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Male2.GetComponentInChildren<TextMeshProUGUI>().text);
         }
         if (Male3.GetComponentInChildren<TextMeshProUGUI>().text != "XX")
         {
-            Male3Original.GetComponentInChildren<TextMeshProUGUI>().text = Male3.GetComponentInChildren<TextMeshProUGUI>().text;
+            Male3Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Male3.GetComponentInChildren<TextMeshProUGUI>().text);
         }
         if (Female1.GetComponentInChildren<TextMeshProUGUI>().text != "XX")
         {
@@ -144,13 +173,16 @@ public class AssetsPurchasedController : MonoBehaviour
         if (Male1Amount > 0)
         {
             Debug.Log("Male1 clicked");
+            Male1.GetComponent<Button>().interactable = false;
             Male2.GetComponent<Button>().interactable = false;
             Male3.GetComponent<Button>().interactable = false;
             Female1.GetComponent<Button>().interactable = false;
             Female2.GetComponent<Button>().interactable = false;
             Female3.GetComponent<Button>().interactable = false;
             staffPicked = true;
+            staffType = "Male1";
             Male1Amount--;
+            Male1Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Male1Amount.ToString());
         }
         else
         {
@@ -164,12 +196,15 @@ public class AssetsPurchasedController : MonoBehaviour
         {
             Debug.Log("Male2 clicked");
             Male1.GetComponent<Button>().interactable = false;
+            Male2.GetComponent<Button>().interactable = false;
             Male3.GetComponent<Button>().interactable = false;
             Female1.GetComponent<Button>().interactable = false;
             Female2.GetComponent<Button>().interactable = false;
             Female3.GetComponent<Button>().interactable = false;
             staffPicked = true;
+            staffType = "Male2";
             Male2Amount--;
+            Male2Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Male2Amount.ToString());
         }
         else
         {
@@ -184,11 +219,14 @@ public class AssetsPurchasedController : MonoBehaviour
             Debug.Log("Male3 clicked");
             Male1.GetComponent<Button>().interactable = false;
             Male2.GetComponent<Button>().interactable = false;
+            Male3.GetComponent<Button>().interactable = false;
             Female1.GetComponent<Button>().interactable = false;
             Female2.GetComponent<Button>().interactable = false;
             Female3.GetComponent<Button>().interactable = false;
             staffPicked = true;
+            staffType = "Male3";
             Male3Amount--;
+            Male3Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Male3Amount.ToString());
         }
         else
         {
@@ -204,10 +242,13 @@ public class AssetsPurchasedController : MonoBehaviour
             Male1.GetComponent<Button>().interactable = false;
             Male2.GetComponent<Button>().interactable = false;
             Male3.GetComponent<Button>().interactable = false;
+            Female1.GetComponent<Button>().interactable = false;
             Female2.GetComponent<Button>().interactable = false;
             Female3.GetComponent<Button>().interactable = false;
             staffPicked = true;
+            staffType = "Female1";
             Female1Amount--;
+            Female1Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Female1Amount.ToString());
         }
         else
         {
@@ -224,9 +265,12 @@ public class AssetsPurchasedController : MonoBehaviour
             Male2.GetComponent<Button>().interactable = false;
             Male3.GetComponent<Button>().interactable = false;
             Female1.GetComponent<Button>().interactable = false;
+            Female2.GetComponent<Button>().interactable = false;
             Female3.GetComponent<Button>().interactable = false;
             staffPicked = true;
+            staffType = "Female2";
             Female2Amount--;
+            Female2Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Female2Amount.ToString());
         }
         else
         {
@@ -244,8 +288,11 @@ public class AssetsPurchasedController : MonoBehaviour
             Male3.GetComponent<Button>().interactable = false;
             Female1.GetComponent<Button>().interactable = false;
             Female2.GetComponent<Button>().interactable = false;
+            Female3.GetComponent<Button>().interactable = false;
             staffPicked = true;
+            staffType = "Female3";
             Female3Amount--;
+            Female3Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Female3Amount.ToString());
         }
         else
         {
@@ -258,10 +305,13 @@ public class AssetsPurchasedController : MonoBehaviour
         if (Train1Amount > 0)
         {
             Debug.Log("Train1 clicked");
+            Train1.GetComponent<Button>().interactable = false;
             Train2.GetComponent<Button>().interactable = false;
             Train3.GetComponent<Button>().interactable = false;
             trainPicked = true;
+            trainType = "Train1";
             Train1Amount--;
+            Train1Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Train1Amount.ToString());
         }
         else
         {
@@ -274,9 +324,12 @@ public class AssetsPurchasedController : MonoBehaviour
         {
             Debug.Log("Train2 clicked");
             Train1.GetComponent<Button>().interactable = false;
+            Train2.GetComponent<Button>().interactable = false;
             Train3.GetComponent<Button>().interactable = false;
             trainPicked = true;
+            trainType = "Train2";
             Train2Amount--;
+            Train2Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Train2Amount.ToString());
         }
         else
         {
@@ -290,8 +343,11 @@ public class AssetsPurchasedController : MonoBehaviour
             Debug.Log("Train3 clicked");
             Train1.GetComponent<Button>().interactable = false;
             Train2.GetComponent<Button>().interactable = false;
+            Train3.GetComponent<Button>().interactable = false;
             trainPicked = true;
+            trainType = "Train3";
             Train3Amount--;
+            Train3Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Train3Amount.ToString());
         }
         else
         {
@@ -299,18 +355,57 @@ public class AssetsPurchasedController : MonoBehaviour
         }
     }
 
+    public void ConfirmButtonAction()
+    {
+        TextMeshProUGUI departureCity = Instantiate(departureCityTemplate) as TextMeshProUGUI;
+        departureCity.SetText(sendFrom.GetComponentInChildren<TMP_Dropdown>().value.ToString());
+        departureCity.transform.SetParent(departureCityTemplate.transform.parent, false);
+
+        TextMeshProUGUI destinationCity = Instantiate(destinationCityTemplate) as TextMeshProUGUI;
+        destinationCity.SetText(sendTo.GetComponentInChildren<TMP_Dropdown>().value.ToString());
+        destinationCity.transform.SetParent(destinationCityTemplate.transform.parent, false);
+
+        TextMeshProUGUI trainPicked = Instantiate(trainPickedTemplate) as TextMeshProUGUI;
+        trainPicked.SetText(trainType);
+        trainPicked.transform.SetParent(trainPickedTemplate.transform.parent, false);
+
+        TextMeshProUGUI staffPicked = Instantiate(staffPickedTemplate) as TextMeshProUGUI;
+        staffPicked.SetText(staffType);
+        staffPicked.transform.SetParent(staffPickedTemplate.transform.parent, false);
+
+        //TextMeshProUGUI ETA = Instantiate(ETATemplate) as TextMeshProUGUI;
+        //ETA.SetText();
+        //ETA.transform.SetParent(ETATemplate.transform.parent, false);
+
+        if (confirmPanel.activeSelf == false)
+        {
+            trainType = "None";
+            staffType = "None";
+            ConfirmButton.interactable = false;
+        }
+    }
+
     void ChooseStaffText()
     {
         chooseStaff.SetText("Staff OK!");
         chooseStaff.colorGradientPreset = green;
-        Debug.Log("ChooseStaffText updated " + chooseStaff.text);
+        //Debug.Log("ChooseStaffText updated " + chooseStaff.text);
     }
 
     void ChooseTrainText()
     {
         chooseTrain.SetText("Train OK!");
         chooseTrain.colorGradientPreset = green;
-        Debug.Log("ChooseTrainText updated " + chooseTrain.text);
+        //Debug.Log("ChooseTrainText updated " + chooseTrain.text);
+    }
+
+    void IsConfirmed()
+    {
+        if (trainPicked == true && staffPicked == true)
+        {
+            confirmed = true;
+        }
+        confirmed = false;
     }
 
     private void Start()
@@ -328,6 +423,10 @@ public class AssetsPurchasedController : MonoBehaviour
         Train1.GetComponent<Button>().onClick.AddListener(Train1Pick);
         Train2.GetComponent<Button>().onClick.AddListener(Train2Pick);
         Train3.GetComponent<Button>().onClick.AddListener(Train3Pick);
+
+        ConfirmButton.interactable = false;
+
+        ConfirmButton.onClick.AddListener(ConfirmButtonAction);
     }
 
     void Update()
@@ -354,6 +453,11 @@ public class AssetsPurchasedController : MonoBehaviour
         {
             chooseTrain.SetText("Choose Train!");
             chooseTrain.colorGradientPreset = red;
+        }
+
+        if (staffPicked && trainPicked)
+        {
+            ConfirmButton.interactable = true;
         }
     }
 }

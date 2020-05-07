@@ -64,16 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AssetButtonClickedTrigger.cs" />
-    <Compile Include="Assets\Scripts\AssetPick\AssetClicked.cs" />
-    <Compile Include="Assets\Scripts\AssetPick\Female1Pick.cs" />
-    <Compile Include="Assets\Scripts\AssetPick\Female2Pick.cs" />
-    <Compile Include="Assets\Scripts\AssetPick\Female3Pick.cs" />
-    <Compile Include="Assets\Scripts\AssetPick\Male1Pick.cs" />
-    <Compile Include="Assets\Scripts\AssetPick\Male2Pick.cs" />
-    <Compile Include="Assets\Scripts\AssetPick\Male3Pick.cs" />
-    <Compile Include="Assets\Scripts\AssetPick\Train1Pick.cs" />
-    <Compile Include="Assets\Scripts\AssetPick\Train2Pick.cs" />
-    <Compile Include="Assets\Scripts\AssetPick\Train3Pick.cs" />
     <Compile Include="Assets\Scripts\AssetsPurchasedController.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Controls.cs" />
@@ -91,6 +81,7 @@
     <Compile Include="Assets\Scripts\MakeCity.cs" />
     <Compile Include="Assets\Scripts\MakeTrain.cs" />
     <Compile Include="Assets\Scripts\MakeWorker.cs" />
+    <Compile Include="Assets\Scripts\MapTimerController.cs" />
     <Compile Include="Assets\Scripts\MinimapScript.cs" />
     <Compile Include="Assets\Scripts\MoveCloud.cs" />
     <Compile Include="Assets\Scripts\OnClickBuyHire\BuyHirePressed.cs" />
@@ -101,9 +92,8 @@
     <Compile Include="Assets\Scripts\Properties\TrainProperties.cs" />
     <Compile Include="Assets\Scripts\Properties\WorkerProperties.cs" />
     <Compile Include="Assets\Scripts\Spawner.cs" />
-    <Compile Include="Assets\Scripts\StaffPick.cs" />
+    <Compile Include="Assets\Scripts\Timetable\ListController.cs" />
     <Compile Include="Assets\Scripts\ToMainMenu.cs" />
-    <Compile Include="Assets\Scripts\TrainPick.cs" />
     <Compile Include="Assets\Scripts\TrainSystem.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />

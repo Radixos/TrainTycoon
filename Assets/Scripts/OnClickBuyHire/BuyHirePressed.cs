@@ -144,7 +144,7 @@ public class BuyHirePressed : MonoBehaviour
     {
         if(functionIsTriggered == true)
         {
-            LevelManager.instance.moneyAmount -= Price;
+            //LevelManager.instance.moneyAmount -= Price;
             LevelManager.instance.UpdateMoneyDisplay();
             functionIsTriggered = false;
         }

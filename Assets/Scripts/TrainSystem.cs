@@ -67,17 +67,17 @@ public class TrainSystem : MonoBehaviour
 
     MakeWorker HireWorkerScript;
 
-    //#region FakeSingleton
-    //public static TrainSystem instance;
+    #region FakeSingleton
+    public static TrainSystem instance;
 
-    //private void Awake()
-    //{
-    //    if (instance == null)
-    //    {
-    //        instance = this;
-    //    }
-    //}
-    //#endregion
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+    #endregion
 
     void Start()
     {
