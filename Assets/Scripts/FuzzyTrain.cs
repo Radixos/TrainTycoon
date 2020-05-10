@@ -20,10 +20,21 @@ public class FuzzyTrain : MonoBehaviour
     public AnimationCurve C_high;
 
     public Slider ticketPriceSlider;
-    //public TrainSystem timeOfTravel;    //??? How to read part of the string from the other script
     public TMPro.TextMeshProUGUI timeOfTravelText;
 
     TrainSystem TrainSystemScript;
+
+    #region FakeSingleton
+    public static FuzzyTrain instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+    #endregion
 
     private void Start()
     {

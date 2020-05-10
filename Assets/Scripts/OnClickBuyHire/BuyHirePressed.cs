@@ -112,7 +112,7 @@ public class BuyHirePressed : MonoBehaviour
         if(LevelManager.instance.moneyAmount - Price >= 0)
         {
             LevelManager.instance.moneyAmount -= UIButtonPressed();
-            Debug.Log("I should update!");
+            //Debug.Log("I should update!");
         }
         else
         {
@@ -120,10 +120,8 @@ public class BuyHirePressed : MonoBehaviour
         }
     }
 
-    void Start()
+    void Awake()
     {
-        //TODO: fix two ifs below not being called immediately
-
         if (trainAssetBought != null && trainAssetBought.enabled == true)
         {
             trainAssetBought.enabled = false;
@@ -138,6 +136,13 @@ public class BuyHirePressed : MonoBehaviour
 
         MakeTrainScript = GetComponentInParent<MakeTrain>();
         MakeWorkerScript = GetComponentInParent<MakeWorker>();
+    }
+
+    void Start()
+    {
+        //TODO: fix two ifs below not being called immediately
+
+        
     }
 
     void Update()

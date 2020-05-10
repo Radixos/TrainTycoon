@@ -37,31 +37,31 @@ public class MakeCity : MonoBehaviour
                 if (TheCapitol.Citizens > 1E7 / 50)     //Assuming every 50th person wants to travel
                     tempNumberOfCitizens = (int)TheCapitol.Citizens;
 
-                Debug.Log("There are no passengers willing to travel from The Capitol.");
+                //Debug.Log("There are no passengers willing to travel from The Capitol.");
                 break;
             case 2:
                 if (AlmostSnow.Citizens > 5E5 / 50)
                     tempNumberOfCitizens = (int)AlmostSnow.Citizens;
 
-                Debug.Log("There are no passengers willing to travel from Almost Snow.");
+                //Debug.Log("There are no passengers willing to travel from Almost Snow.");
                 break;
             case 3:
                 if (CloseToRussia.Citizens > 3E6 / 50)
                     tempNumberOfCitizens = (int)CloseToRussia.Citizens;
 
-                Debug.Log("There are no passengers willing to travel from Close To Russia.");
+                //Debug.Log("There are no passengers willing to travel from Close To Russia.");
                 break;
             case 4:
                 if (MountainCity.Citizens > 222E4 / 50)
                     tempNumberOfCitizens = (int)MountainCity.Citizens;
 
-                Debug.Log("There are no passengers willing to travel from Mountain City.");
+                //Debug.Log("There are no passengers willing to travel from Mountain City.");
                 break;
             case 5:
                 if (FaraonCity.Citizens > 735E3 / 50)
                     tempNumberOfCitizens = (int)FaraonCity.Citizens;
 
-                Debug.Log("There are no passengers willing to travel from Faraon City.");
+                //Debug.Log("There are no passengers willing to travel from Faraon City.");
                 break;
         }
         numberOfPassengers = ((int)passengerNumberVariation * tempNumberOfCitizens) / numberOfPassengersBalancer;

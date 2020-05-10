@@ -5,7 +5,6 @@ using TMPro;
 
 public class ListController : MonoBehaviour
 {
-    [SerializeField]
     private TextMeshProUGUI departureCity;
     private TextMeshProUGUI destinationCity;
     private TextMeshProUGUI trainPicked;

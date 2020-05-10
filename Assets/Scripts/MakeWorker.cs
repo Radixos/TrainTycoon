@@ -50,6 +50,17 @@ public class MakeWorker : MonoBehaviour
     public TextMeshProUGUI female3SpeedBonus;
     public TextMeshProUGUI female3HappinessBonus;
 
+    #region FakeSingleton
+    public static MakeWorker instance;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+    #endregion
+
     //[System.Serializable]
     //public class WorkerPropertiesHolder
     //{
@@ -155,10 +166,5 @@ public class MakeWorker : MonoBehaviour
         female3Earnings.text = "Salary: " + Female3.Earnings.ToString();
         female3SpeedBonus.text = "Speed Bonus: " + Female3.SpeedBonus.ToString();
         female3HappinessBonus.text = "Happiness Bonus: " + Female3.HappinessBonus.ToString();
-    }
-
-    void Update()
-    {
-        
     }
 }

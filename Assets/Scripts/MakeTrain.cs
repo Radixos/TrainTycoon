@@ -27,6 +27,17 @@ public class MakeTrain : MonoBehaviour
     public TextMeshProUGUI train3HappinessBonus;
     public TextMeshProUGUI train3Capacity;
 
+    #region FakeSingleton
+    public static MakeTrain instance;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+    #endregion
+
     void Start()
     {
         //////////////////////Trains//////////////////////
