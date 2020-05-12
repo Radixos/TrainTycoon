@@ -14,7 +14,7 @@ public class AssetsPurchasedController : MonoBehaviour
     public string trainType;
     public string staffType;
     [HideInInspector] public int staffEarnings = 0;
-    [HideInInspector] public int iETA = 0;
+    [HideInInspector] public int iETA;
     [HideInInspector] public bool trainDispatched = false;
 
     public GameObject sendFrom;
@@ -398,9 +398,10 @@ public class AssetsPurchasedController : MonoBehaviour
 
         UpdateAssets(); //Is it needed here?
 
-        iETA = int.Parse(ETA.text);
+        int iETA = int.Parse(ETA.text);
+        //Debug.Log(iETA);
         trainDispatched = true;
-        Debug.Log(trainDispatched);
+        Debug.Log("Train dispatched: " + trainDispatched);
         //LevelManager.instance.CalculateEarnings(iETA);
 
         Destroy(departureCity, iETA);
@@ -423,8 +424,6 @@ public class AssetsPurchasedController : MonoBehaviour
         //intArray = newArray;
         //Can not delete temp array in C#, how to clean it? Should I?
 
-        confirmPanel.SetActive(false);
-
         trainType = "None";
         staffType = "None";
         staffPickedBool = false;
@@ -440,6 +439,8 @@ public class AssetsPurchasedController : MonoBehaviour
         Train1.GetComponent<Button>().interactable = true;
         Train2.GetComponent<Button>().interactable = true;
         Train3.GetComponent<Button>().interactable = true;
+
+        //confirmPanel.SetActive(false);
     }
 
     void ChooseStaffText(bool staffPicked)
@@ -491,8 +492,6 @@ public class AssetsPurchasedController : MonoBehaviour
         ConfirmButton.interactable = false;
 
         ConfirmButton.onClick.AddListener(ConfirmButtonAction);
-
-        StartCoroutine(LevelManager.instance.CalculateEarnings(LevelManager.instance.waitTime));
     }
 
     void Update()
@@ -510,8 +509,9 @@ public class AssetsPurchasedController : MonoBehaviour
 
         if (trainDispatched == true)
         {
-            LevelManager.instance.CalculateEarnings(iETA);
+            StartCoroutine(LevelManager.instance.CalculateEarnings(iETA));    //"" allows to stop coroutine
             trainDispatched = false;
+            Debug.Log("Train dispatched: " + trainDispatched);
         }
     }
 }

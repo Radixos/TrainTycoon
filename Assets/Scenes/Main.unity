@@ -38361,6 +38361,9 @@ MonoBehaviour:
   confirmed: 0
   trainType: None
   staffType: None
+  staffEarnings: 0
+  iETA: 0
+  trainDispatched: 0
   sendFrom: {fileID: 1783711344}
   sendTo: {fileID: 800311704}
   confirmPanel: {fileID: 890045968}
@@ -39060,10 +39063,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9fff4915e81e2848bd3f4d0b5860bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyAmount: 50000
+  moneyAmount: 35000
   moneyAmountText: {fileID: 246225630}
+  profit: 0
+  profitText: {fileID: 1210798689}
   numberOfPassengers: 500
-  PerPassengerCost: 50
+  perPassengerCost: 50
   fuelCost: 10000
   staffHappiness: 50
   staffHappinessText: {fileID: 873196326}
