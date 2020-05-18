@@ -8,8 +8,6 @@ public class BuyHirePressed : MonoBehaviour
 {
     public GameObject go;
     public TextMeshProUGUI assetsAmount;
-    public TextMeshProUGUI trainAssetBought;
-    public TextMeshProUGUI staffAssetBought;
     MakeTrain MakeTrainScript;
     MakeWorker MakeWorkerScript;
     private double Price;
@@ -22,80 +20,52 @@ public class BuyHirePressed : MonoBehaviour
             case "Buy1":
                 Price = MakeTrainScript.Train1.Price;
                 UpdateAssetsAmount();
-                trainAssetBoughtMessage();
+                StartCoroutine(LevelManager.instance.TrainAssetBoughtMessage());
                 break;
             case "Buy2":
                 Price = MakeTrainScript.Train2.Price;
                 UpdateAssetsAmount();
-                trainAssetBoughtMessage();
+                StartCoroutine(LevelManager.instance.TrainAssetBoughtMessage());
                 break;
             case "Buy3":
                 Price = MakeTrainScript.Train3.Price;
                 UpdateAssetsAmount();
-                trainAssetBoughtMessage();
+                StartCoroutine(LevelManager.instance.TrainAssetBoughtMessage());
                 break;
             case "Hire1":
                 Price = MakeWorkerScript.Female1.Earnings;
                 UpdateAssetsAmount();
-                staffAssetBoughtMessage();
+                StartCoroutine(LevelManager.instance.StaffAssetBoughtMessage());
                 break;
             case "Hire2":
                 Price = MakeWorkerScript.Female2.Earnings;
                 UpdateAssetsAmount();
-                staffAssetBoughtMessage();
+                StartCoroutine(LevelManager.instance.StaffAssetBoughtMessage());
                 break;
             case "Hire3":
                 Price = MakeWorkerScript.Female3.Earnings;
                 UpdateAssetsAmount();
-                staffAssetBoughtMessage();
+                StartCoroutine(LevelManager.instance.StaffAssetBoughtMessage());
                 break;
             case "Hire4":
                 Price = MakeWorkerScript.Male1.Earnings;
                 UpdateAssetsAmount();
-                staffAssetBoughtMessage();
+                StartCoroutine(LevelManager.instance.StaffAssetBoughtMessage());
                 break;
             case "Hire5":
                 Price = MakeWorkerScript.Male2.Earnings;
                 UpdateAssetsAmount();
-                staffAssetBoughtMessage();
+                StartCoroutine(LevelManager.instance.StaffAssetBoughtMessage());
                 break;
             case "Hire6":
                 Price = MakeWorkerScript.Male3.Earnings;
                 UpdateAssetsAmount();
-                staffAssetBoughtMessage();
+                StartCoroutine(LevelManager.instance.StaffAssetBoughtMessage());
                 break;
         }
 
         functionIsTriggered = true;
         return Price;
-    }
-
-    private void trainAssetBoughtMessage()
-    {
-        if (trainAssetBought != null)
-        {
-            trainAssetBought.enabled = true;
-            Invoke("trainAssetBoughtFN", 3.0f);
-        }
-    }
-
-    private void trainAssetBoughtFN()
-    {
-        trainAssetBought.enabled = false;
-    }
-
-    private void staffAssetBoughtMessage()
-    {
-        if (staffAssetBought != null)
-        {
-            staffAssetBought.enabled = true;
-            Invoke("staffAssetBoughtFN", 3.0f);
-        }
-    }
-
-    private void staffAssetBoughtFN()
-    {
-        staffAssetBought.enabled = false;
     }
 
     //TODO: Avoid converting string to number and back to string
@@ -122,15 +92,15 @@ public class BuyHirePressed : MonoBehaviour
 
     void Awake()
     {
-        if (trainAssetBought != null && trainAssetBought.enabled == true)
-        {
-            trainAssetBought.enabled = false;
-        }
+        //if (trainAssetBought != null && trainAssetBought.enabled == true)
+        //{
+        //trainAssetBought.enabled = false;
+        //}
 
-        if (staffAssetBought != null && staffAssetBought.enabled == true)
-        {
-            staffAssetBought.enabled = false;
-        }
+        //if (staffAssetBought != null && staffAssetBought.enabled == true)
+        //{
+        //staffAssetBought.enabled = false;
+        //}
 
         assetsAmount.text = "0";
 
@@ -138,11 +108,10 @@ public class BuyHirePressed : MonoBehaviour
         MakeWorkerScript = GetComponentInParent<MakeWorker>();
     }
 
-    void Start()
+    private void Start()
     {
-        //TODO: fix two ifs below not being called immediately
-
-        
+        //trainAssetBought.GetComponent<TextMeshProUGUI>().enabled = false;
+        //staffAssetBought.GetComponent<TextMeshProUGUI>().enabled = false;
     }
 
     void Update()

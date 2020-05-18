@@ -70,7 +70,6 @@
     <Compile Include="Assets\Scripts\Destroyer.cs" />
     <Compile Include="Assets\Scripts\DispatchTrain.cs" />
     <Compile Include="Assets\Scripts\FuzzyTrain.cs" />
-    <Compile Include="Assets\Scripts\HappinessDisplay.cs" />
     <Compile Include="Assets\Scripts\IfPanelActiveCloseOther.cs" />
     <Compile Include="Assets\Scripts\LevelLoader.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />

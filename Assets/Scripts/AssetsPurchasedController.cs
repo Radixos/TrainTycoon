@@ -11,8 +11,8 @@ public class AssetsPurchasedController : MonoBehaviour
     public Button ConfirmButton;
 
     [HideInInspector] public bool confirmed = false;
-    public string trainType;
-    public string staffType;
+    [HideInInspector] public string s_trainType;
+    [HideInInspector] public string staffType;
     [HideInInspector] public int staffEarnings = 0;
     [HideInInspector] public int iETA;
     [HideInInspector] public bool trainDispatched = false;
@@ -319,7 +319,7 @@ public class AssetsPurchasedController : MonoBehaviour
             Train2.GetComponent<Button>().interactable = false;
             Train3.GetComponent<Button>().interactable = false;
             trainPickedBool = true;
-            trainType = "Train1";
+            s_trainType = "Train1";
             Train1Amount--;
             Train1Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Train1Amount.ToString());
         }
@@ -337,7 +337,7 @@ public class AssetsPurchasedController : MonoBehaviour
             Train2.GetComponent<Button>().interactable = false;
             Train3.GetComponent<Button>().interactable = false;
             trainPickedBool = true;
-            trainType = "Train2";
+            s_trainType = "Train2";
             Train2Amount--;
             Train2Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Train2Amount.ToString());
         }
@@ -355,7 +355,7 @@ public class AssetsPurchasedController : MonoBehaviour
             Train2.GetComponent<Button>().interactable = false;
             Train3.GetComponent<Button>().interactable = false;
             trainPickedBool = true;
-            trainType = "Train3";
+            s_trainType = "Train3";
             Train3Amount--;
             Train3Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Train3Amount.ToString());
         }
@@ -383,7 +383,7 @@ public class AssetsPurchasedController : MonoBehaviour
 
         TextMeshProUGUI trainPicked = Instantiate(trainPickedTemplate) as TextMeshProUGUI;
         trainPicked.gameObject.SetActive(true);
-        trainPicked.SetText(trainType);
+        trainPicked.SetText(s_trainType);
         trainPicked.transform.SetParent(trainPickedTemplate.transform.parent, false);
 
         TextMeshProUGUI staffPicked = Instantiate(staffPickedTemplate) as TextMeshProUGUI;
@@ -398,10 +398,10 @@ public class AssetsPurchasedController : MonoBehaviour
 
         UpdateAssets(); //Is it needed here?
 
-        int iETA = int.Parse(ETA.text);
+        iETA = int.Parse(ETA.text) * LevelManager.instance.timeFactor;
         //Debug.Log(iETA);
         trainDispatched = true;
-        Debug.Log("Train dispatched: " + trainDispatched);
+        //Debug.Log("Train dispatched: " + trainDispatched);
         //LevelManager.instance.CalculateEarnings(iETA);
 
         Destroy(departureCity, iETA);
@@ -424,8 +424,8 @@ public class AssetsPurchasedController : MonoBehaviour
         //intArray = newArray;
         //Can not delete temp array in C#, how to clean it? Should I?
 
-        trainType = "None";
-        staffType = "None";
+        //s_trainType = "None";
+        //staffType = "None";
         staffPickedBool = false;
         trainPickedBool = false;
         ConfirmButton.interactable = false;
@@ -510,8 +510,10 @@ public class AssetsPurchasedController : MonoBehaviour
         if (trainDispatched == true)
         {
             StartCoroutine(LevelManager.instance.CalculateEarnings(iETA));    //"" allows to stop coroutine
+            StartCoroutine(FuzzyTrain.instance.EvaluateStaffHappiness());
+            StartCoroutine(FuzzyTrain.instance.EvaluatePassengersHappiness());
             trainDispatched = false;
-            Debug.Log("Train dispatched: " + trainDispatched);
+            //Debug.Log("Train dispatched: " + trainDispatched);
         }
     }
 }

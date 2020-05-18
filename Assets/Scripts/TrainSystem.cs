@@ -62,11 +62,6 @@ public class TrainSystem : MonoBehaviour
 
     public Slider ticketPriceSlider;
 
-    private double moneyAmount = 50000f;
-    public TMPro.TextMeshProUGUI MoneyAmountText;
-
-    MakeWorker HireWorkerScript;
-
     #region FakeSingleton
     public static TrainSystem instance;
 
@@ -81,8 +76,6 @@ public class TrainSystem : MonoBehaviour
 
     void Start()
     {
-        HireWorkerScript = GetComponentInParent<MakeWorker>();
-
         sendFromDropdown.onValueChanged.AddListener(delegate { DropdownValueChanged(sendFromDropdown); });
 
         //timeOfTravelText.text = "First Value: " + sendFromDropdown.value;
@@ -90,11 +83,6 @@ public class TrainSystem : MonoBehaviour
         destinationDropdown.onValueChanged.AddListener(delegate { DropdownValueChanged(destinationDropdown); });
 
         //timeOfTravelText.text = "First Value: " + destinationDropdown.value;
-    }
-
-    private void Update()
-    {
-
     }
 
     public void DropdownValueChanged(TMP_Dropdown change)
