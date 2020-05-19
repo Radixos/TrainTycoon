@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
     public int perPassengerCost = 100;
     public int fuelCost = 20000;
 
-    public int timeFactor = 1;
+    public int timeFactor = 10;
 
     public Slider ticketPriceSlider;
     public Slider staffBonusSlider;

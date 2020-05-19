@@ -396,7 +396,7 @@ public class AssetsPurchasedController : MonoBehaviour
         ETA.SetText(TrainSystem.instance.timeOfTravel.ToString());
         ETA.transform.SetParent(ETATemplate.transform.parent, false);
 
-        UpdateAssets(); //Is it needed here?
+        // UpdateAssets(); //Is it needed here?
 
         iETA = int.Parse(ETA.text) * LevelManager.instance.timeFactor;
         //Debug.Log(iETA);
@@ -496,8 +496,8 @@ public class AssetsPurchasedController : MonoBehaviour
 
     void Update()
     {
-        UpdateAssets();
-        UpdateAssetsReverse();
+        UpdateAssets();         //or move it to ConfirmButtonAction()?
+        UpdateAssetsReverse();  //or move it to ConfirmButtonAction()?
 
         ChooseStaffText(staffPickedBool);
         ChooseTrainText(trainPickedBool);

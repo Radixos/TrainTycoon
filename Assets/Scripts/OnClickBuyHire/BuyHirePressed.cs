@@ -10,7 +10,7 @@ public class BuyHirePressed : MonoBehaviour
     public TextMeshProUGUI assetsAmount;
     MakeTrain MakeTrainScript;
     MakeWorker MakeWorkerScript;
-    private double Price;
+    private double price;
     private bool functionIsTriggered = false;
 
     public double UIButtonPressed()
@@ -18,57 +18,46 @@ public class BuyHirePressed : MonoBehaviour
         switch (go.name)
         {
             case "Buy1":
-                Price = MakeTrainScript.Train1.Price;
-                UpdateAssetsAmount();
+                price = MakeTrainScript.Train1.Price;
                 StartCoroutine(LevelManager.instance.TrainAssetBoughtMessage());
                 break;
             case "Buy2":
-                Price = MakeTrainScript.Train2.Price;
-                UpdateAssetsAmount();
+                price = MakeTrainScript.Train2.Price;
                 StartCoroutine(LevelManager.instance.TrainAssetBoughtMessage());
                 break;
             case "Buy3":
-                Price = MakeTrainScript.Train3.Price;
-                UpdateAssetsAmount();
+                price = MakeTrainScript.Train3.Price;
                 StartCoroutine(LevelManager.instance.TrainAssetBoughtMessage());
                 break;
             case "Hire1":
-                Price = MakeWorkerScript.Female1.Earnings;
-                UpdateAssetsAmount();
+                price = MakeWorkerScript.Female1.Earnings;
                 StartCoroutine(LevelManager.instance.StaffAssetBoughtMessage());
                 break;
             case "Hire2":
-                Price = MakeWorkerScript.Female2.Earnings;
-                UpdateAssetsAmount();
+                price = MakeWorkerScript.Female2.Earnings;
                 StartCoroutine(LevelManager.instance.StaffAssetBoughtMessage());
                 break;
             case "Hire3":
-                Price = MakeWorkerScript.Female3.Earnings;
-                UpdateAssetsAmount();
+                price = MakeWorkerScript.Female3.Earnings;
                 StartCoroutine(LevelManager.instance.StaffAssetBoughtMessage());
                 break;
             case "Hire4":
-                Price = MakeWorkerScript.Male1.Earnings;
-                UpdateAssetsAmount();
+                price = MakeWorkerScript.Male1.Earnings;
                 StartCoroutine(LevelManager.instance.StaffAssetBoughtMessage());
                 break;
             case "Hire5":
-                Price = MakeWorkerScript.Male2.Earnings;
-                UpdateAssetsAmount();
+                price = MakeWorkerScript.Male2.Earnings;
                 StartCoroutine(LevelManager.instance.StaffAssetBoughtMessage());
                 break;
             case "Hire6":
-                Price = MakeWorkerScript.Male3.Earnings;
-                UpdateAssetsAmount();
+                price = MakeWorkerScript.Male3.Earnings;
                 StartCoroutine(LevelManager.instance.StaffAssetBoughtMessage());
                 break;
         }
 
         functionIsTriggered = true;
-        return Price;
+        return price;
     }
-
-    //TODO: Avoid converting string to number and back to string
 
     private void UpdateAssetsAmount()
     {
@@ -79,10 +68,10 @@ public class BuyHirePressed : MonoBehaviour
 
     public void UpdateMoney()
     {
-        if(LevelManager.instance.moneyAmount - Price >= 0)
+        if(LevelManager.instance.moneyAmount - UIButtonPressed() >= 0)  //or price instead of UIButtonPressed. Now the messages are called twice
         {
             LevelManager.instance.moneyAmount -= UIButtonPressed();
-            //Debug.Log("I should update!");
+            UpdateAssetsAmount();
         }
         else
         {
@@ -92,16 +81,6 @@ public class BuyHirePressed : MonoBehaviour
 
     void Awake()
     {
-        //if (trainAssetBought != null && trainAssetBought.enabled == true)
-        //{
-        //trainAssetBought.enabled = false;
-        //}
-
-        //if (staffAssetBought != null && staffAssetBought.enabled == true)
-        //{
-        //staffAssetBought.enabled = false;
-        //}
-
         assetsAmount.text = "0";
 
         MakeTrainScript = GetComponentInParent<MakeTrain>();
