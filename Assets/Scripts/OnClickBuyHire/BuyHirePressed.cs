@@ -68,7 +68,7 @@ public class BuyHirePressed : MonoBehaviour
 
     public void UpdateMoney()
     {
-        if(LevelManager.instance.moneyAmount - UIButtonPressed() >= 0)  //or price instead of UIButtonPressed. Now the messages are called twice
+        if(LevelManager.instance.moneyAmount - UIButtonPressed() >= 0)  //or price instead of UIButtonPressed
         {
             LevelManager.instance.moneyAmount -= UIButtonPressed();
             UpdateAssetsAmount();

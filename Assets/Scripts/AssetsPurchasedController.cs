@@ -12,10 +12,12 @@ public class AssetsPurchasedController : MonoBehaviour
 
     [HideInInspector] public bool confirmed = false;
     [HideInInspector] public string s_trainType;
-    [HideInInspector] public string staffType;
+    [HideInInspector] public string s_staffType;
     [HideInInspector] public int staffEarnings = 0;
     [HideInInspector] public int iETA;
     [HideInInspector] public bool trainDispatched = false;
+
+    public int timeFactor = 2;
 
     public GameObject sendFrom;
     public GameObject sendTo;
@@ -184,7 +186,7 @@ public class AssetsPurchasedController : MonoBehaviour
             Female2.GetComponent<Button>().interactable = false;
             Female3.GetComponent<Button>().interactable = false;
             staffPickedBool = true;
-            staffType = "Male1";
+            s_staffType = "Male1";
             staffEarnings = (int)MakeWorker.instance.Male1.Earnings;
             Male1Amount--;
             Male1Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Male1Amount.ToString());
@@ -207,7 +209,7 @@ public class AssetsPurchasedController : MonoBehaviour
             Female2.GetComponent<Button>().interactable = false;
             Female3.GetComponent<Button>().interactable = false;
             staffPickedBool = true;
-            staffType = "Male2";
+            s_staffType = "Male2";
             staffEarnings = (int)MakeWorker.instance.Male2.Earnings;
             Male2Amount--;
             Male2Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Male2Amount.ToString());
@@ -230,7 +232,7 @@ public class AssetsPurchasedController : MonoBehaviour
             Female2.GetComponent<Button>().interactable = false;
             Female3.GetComponent<Button>().interactable = false;
             staffPickedBool = true;
-            staffType = "Male3";
+            s_staffType = "Male3";
             staffEarnings = (int)MakeWorker.instance.Male3.Earnings;
             Male3Amount--;
             Male3Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Male3Amount.ToString());
@@ -253,7 +255,7 @@ public class AssetsPurchasedController : MonoBehaviour
             Female2.GetComponent<Button>().interactable = false;
             Female3.GetComponent<Button>().interactable = false;
             staffPickedBool = true;
-            staffType = "Female1";
+            s_staffType = "Female1";
             staffEarnings = (int)MakeWorker.instance.Female1.Earnings;
             Female1Amount--;
             Female1Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Female1Amount.ToString());
@@ -276,7 +278,7 @@ public class AssetsPurchasedController : MonoBehaviour
             Female2.GetComponent<Button>().interactable = false;
             Female3.GetComponent<Button>().interactable = false;
             staffPickedBool = true;
-            staffType = "Female2";
+            s_staffType = "Female2";
             staffEarnings = (int)MakeWorker.instance.Female2.Earnings;
             Female2Amount--;
             Female2Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Female2Amount.ToString());
@@ -299,7 +301,7 @@ public class AssetsPurchasedController : MonoBehaviour
             Female2.GetComponent<Button>().interactable = false;
             Female3.GetComponent<Button>().interactable = false;
             staffPickedBool = true;
-            staffType = "Female3";
+            s_staffType = "Female3";
             staffEarnings = (int)MakeWorker.instance.Female3.Earnings;
             Female3Amount--;
             Female3Original.GetComponentInChildren<TextMeshProUGUI>().SetText(Female3Amount.ToString());
@@ -367,10 +369,6 @@ public class AssetsPurchasedController : MonoBehaviour
 
     public void ConfirmButtonAction()
     {
-        //System.Timers.Timer countdownTimer;
-        //countdownTimer = new System.Timers.Timer(1000);
-        //countdownTimer. += OnTimer_Tick;
-
         TextMeshProUGUI departureCity = Instantiate(departureCityTemplate) as TextMeshProUGUI;
         departureCity.gameObject.SetActive(true);
         departureCity.SetText(sendFrom.GetComponentInChildren<TMP_Dropdown>().options[sendFrom.GetComponentInChildren<TMP_Dropdown>().value].text);
@@ -388,7 +386,7 @@ public class AssetsPurchasedController : MonoBehaviour
 
         TextMeshProUGUI staffPicked = Instantiate(staffPickedTemplate) as TextMeshProUGUI;
         staffPicked.gameObject.SetActive(true);
-        staffPicked.SetText(staffType);
+        staffPicked.SetText(s_staffType);
         staffPicked.transform.SetParent(staffPickedTemplate.transform.parent, false);
 
         TextMeshProUGUI ETA = Instantiate(ETATemplate) as TextMeshProUGUI;
@@ -398,8 +396,11 @@ public class AssetsPurchasedController : MonoBehaviour
 
         // UpdateAssets(); //Is it needed here?
 
-        iETA = int.Parse(ETA.text) * LevelManager.instance.timeFactor;
-        //Debug.Log(iETA);
+        iETA = int.Parse(ETA.text) * timeFactor;
+        StartCoroutine(ETAUpdate(iETA, ETA));
+        //Debug.Log("int.Parse(ETA.text): " + int.Parse(ETA.text));
+        //Debug.Log("timeFactor: " + timeFactor);
+        //Debug.Log("iETA: " + iETA);
         trainDispatched = true;
         //Debug.Log("Train dispatched: " + trainDispatched);
         //LevelManager.instance.CalculateEarnings(iETA);
@@ -441,6 +442,21 @@ public class AssetsPurchasedController : MonoBehaviour
         Train3.GetComponent<Button>().interactable = true;
 
         //confirmPanel.SetActive(false);
+    }
+
+    //TODO: Bug where a player must wait a while with confirmPanel opened until ETAUpdate starts
+
+    public IEnumerator ETAUpdate(int iWait, TextMeshProUGUI TmpETA)
+    {
+        for (int i = 0; i <= iWait / timeFactor; i++)
+        {
+            yield return new WaitForSeconds(timeFactor);
+            //Debug.Log("ETAUpdate called");
+            int temp = int.Parse(TmpETA.text);
+            //Debug.Log("Temp: " + temp);
+            temp--;
+            TmpETA.SetText(temp.ToString());
+        }
     }
 
     void ChooseStaffText(bool staffPicked)
@@ -509,7 +525,7 @@ public class AssetsPurchasedController : MonoBehaviour
 
         if (trainDispatched == true)
         {
-            StartCoroutine(LevelManager.instance.CalculateEarnings(iETA));    //"" allows to stop coroutine
+            StartCoroutine(LevelManager.instance.CalculateEarningsAndHappiness(iETA));    //"" allows to stop coroutine
             StartCoroutine(FuzzyTrain.instance.EvaluateStaffHappiness());
             StartCoroutine(FuzzyTrain.instance.EvaluatePassengersHappiness());
             trainDispatched = false;

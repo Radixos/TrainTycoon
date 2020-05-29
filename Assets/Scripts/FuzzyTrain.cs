@@ -93,8 +93,60 @@ public class FuzzyTrain : MonoBehaviour
             denumerator += activityDegree[i];
         }
 
+        #region Bonuses
+        double staffHappinnesBonus = 1;
+        double staffSpeedBonus = 1;
+
+        switch (AssetsPurchasedController.instance.s_staffType.ToString())
+        {
+            case "Male1":
+                staffHappinnesBonus = MakeWorker.instance.Male1.HappinessBonus;
+                staffSpeedBonus = MakeWorker.instance.Male1.SpeedBonus;
+                break;
+            case "Male2":
+                staffHappinnesBonus = MakeWorker.instance.Male2.HappinessBonus;
+                staffSpeedBonus = MakeWorker.instance.Male2.SpeedBonus;
+                break;
+            case "Male3":
+                staffHappinnesBonus = MakeWorker.instance.Male3.HappinessBonus;
+                staffSpeedBonus = MakeWorker.instance.Male3.SpeedBonus;
+                break;
+            case "Female1":
+                staffHappinnesBonus = MakeWorker.instance.Female1.HappinessBonus;
+                staffSpeedBonus = MakeWorker.instance.Female1.SpeedBonus;
+                break;
+            case "Female2":
+                staffHappinnesBonus = MakeWorker.instance.Female2.HappinessBonus;
+                staffSpeedBonus = MakeWorker.instance.Female2.SpeedBonus;
+                break;
+            case "Female3":
+                staffHappinnesBonus = MakeWorker.instance.Female3.HappinessBonus;
+                staffSpeedBonus = MakeWorker.instance.Female3.SpeedBonus;
+                break;
+        }
+
+        double trainHappinnesBonus = 1;
+        double trainSpeedBonus = 1;
+
+        switch (AssetsPurchasedController.instance.s_trainType.ToString())
+        {
+            case "Train1":
+                trainHappinnesBonus = MakeTrain.instance.Train1.HappinessBonus;
+                trainSpeedBonus = MakeTrain.instance.Train1.SpeedBonus;
+                break;
+            case "Train2":
+                trainHappinnesBonus = MakeTrain.instance.Train2.HappinessBonus;
+                trainSpeedBonus = MakeTrain.instance.Train1.SpeedBonus;
+                break;
+            case "Train3":
+                trainHappinnesBonus = MakeTrain.instance.Train3.HappinessBonus;
+                trainSpeedBonus = MakeTrain.instance.Train1.SpeedBonus;
+                break;
+        }
+        #endregion
+
         //LevelManager.instance.staffHappiness += (int)(((((numerator / denumerator) + LevelManager.instance.staffBonusSlider.value - (-150f)) / (150f - (-150f))) * (25f + 25f)) - 25f);
-        LevelManager.instance.staffHappiness += (int)(LevelManager.instance.Scale((numerator / denumerator) + LevelManager.instance.staffBonusSlider.value, -150f, 150f, -25f, 25f));
+        LevelManager.instance.staffHappiness += (int)((LevelManager.instance.Scale((numerator / denumerator) + LevelManager.instance.staffBonusSlider.value, -150f, 150f, -25f, 25f)) * staffHappinnesBonus * trainHappinnesBonus);
         //Debug.Log("Result of FuzzyStaffHappiness: " + ((int)((((((numerator / denumerator + LevelManager.instance.staffBonusSlider.value) - (-150f)) / (150f - (-150f))) * (25f + 25f)) - 25f))));
         //Debug.Log("SH N/D: " + ((int)((numerator / denumerator) + LevelManager.instance.staffBonusSlider.value)));
     }
@@ -134,8 +186,34 @@ public class FuzzyTrain : MonoBehaviour
             }
         }
 
+        #region Bonuses
+
+        double trainHappinnesBonus = 1;
+        double trainSpeedBonus = 1;
+
+        switch (AssetsPurchasedController.instance.s_trainType.ToString())
+        {
+            case "Train1":
+                trainHappinnesBonus = MakeTrain.instance.Train1.HappinessBonus;
+                trainSpeedBonus = MakeTrain.instance.Train1.SpeedBonus;
+                break;
+            case "Train2":
+                trainHappinnesBonus = MakeTrain.instance.Train2.HappinessBonus;
+                trainSpeedBonus = MakeTrain.instance.Train1.SpeedBonus;
+                break;
+            case "Train3":
+                trainHappinnesBonus = MakeTrain.instance.Train3.HappinessBonus;
+                trainSpeedBonus = MakeTrain.instance.Train1.SpeedBonus;
+                break;
+        }
+
+        Debug.Log("trainHappinnesBonus: " + trainHappinnesBonus);
+        Debug.Log("trainSpeedBonus: " + trainSpeedBonus);
+
+        #endregion
+
         //LevelManager.instance.passengersHappiness += (int)(((((numerator / denumerator) - (-100)) / (100 - (-100))) * (25 + 25)) - 25);
-        LevelManager.instance.passengersHappiness += (int)(LevelManager.instance.Scale(numerator / denumerator, -100f, 100f, -25f, 25f));
+        LevelManager.instance.passengersHappiness += (int)((LevelManager.instance.Scale(numerator / denumerator, -100f, 100f, -25f, 25f)) * trainHappinnesBonus);
         //Debug.Log("Result of FuzzyPassengersHappiness: " + ((int)(((((numerator / denumerator) - (-100)) / (100 - (-100))) * (25 + 25)) - 25)));
         //Debug.Log("PH N/D: " + ((int)(numerator / denumerator)));
     }
