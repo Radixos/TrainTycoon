@@ -84,13 +84,13 @@ public class FuzzyTrain : MonoBehaviour
         
         float[] activityDegree = { ToT_shortValue, ToT_mediumValue, ToT_longValue };
 
-        float numerator = 0f;
-        float denumerator = 0f;
+        float nominator = 0f;
+        float denominator = 0f;
 
         for (int i = 0; i < staffHappinessRules.Length; i++)
         {
-            numerator += activityDegree[i] * staffHappinessRules[i];
-            denumerator += activityDegree[i];
+            nominator += activityDegree[i] * staffHappinessRules[i];
+            denominator += activityDegree[i];
         }
 
         #region Bonuses
@@ -145,10 +145,10 @@ public class FuzzyTrain : MonoBehaviour
         }
         #endregion
 
-        //LevelManager.instance.staffHappiness += (int)(((((numerator / denumerator) + LevelManager.instance.staffBonusSlider.value - (-150f)) / (150f - (-150f))) * (25f + 25f)) - 25f);
-        LevelManager.instance.staffHappiness += (int)((LevelManager.instance.Scale((numerator / denumerator) + LevelManager.instance.staffBonusSlider.value, -150f, 150f, -25f, 25f)) * staffHappinnesBonus * trainHappinnesBonus);
-        //Debug.Log("Result of FuzzyStaffHappiness: " + ((int)((((((numerator / denumerator + LevelManager.instance.staffBonusSlider.value) - (-150f)) / (150f - (-150f))) * (25f + 25f)) - 25f))));
-        //Debug.Log("SH N/D: " + ((int)((numerator / denumerator) + LevelManager.instance.staffBonusSlider.value)));
+        //LevelManager.instance.staffHappiness += (int)(((((nominator / denominator) + LevelManager.instance.staffBonusSlider.value - (-150f)) / (150f - (-150f))) * (25f + 25f)) - 25f);
+        LevelManager.instance.staffHappiness += (int)((LevelManager.instance.Scale((nominator / denominator) + LevelManager.instance.staffBonusSlider.value, -150f, 150f, -25f, 25f)) * staffHappinnesBonus * trainHappinnesBonus);
+        //Debug.Log("Result of FuzzyStaffHappiness: " + ((int)((((((nominator / denominator + LevelManager.instance.staffBonusSlider.value) - (-150f)) / (150f - (-150f))) * (25f + 25f)) - 25f))));
+        //Debug.Log("SH N/D: " + ((int)((nominator / denominator) + LevelManager.instance.staffBonusSlider.value)));
     }
 
     public void FuzzyPassengersHappiness()

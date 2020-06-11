@@ -5,7 +5,6 @@ ScriptsOnlyBuild:
     - BuyHirePressed
     - CameraController
     - Controls
-    - DispatchTrain
     - FuzzyTrain
     - IfPanelActiveCloseOther
     - LevelManager
@@ -26,6 +25,9 @@ ScriptsOnlyBuild:
     - Spawner
     - ToMainMenu
     - TrainSystem
+    Cinemachine.dll:
+    - Cinemachine.CinemachineDollyCart
+    - Cinemachine.CinemachinePath
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.Experimental.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
@@ -165,51 +167,53 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13620}
     - Class: 114
-      Script: {instanceID: 13950}
+      Script: {instanceID: 14020}
     - Class: 114
-      Script: {instanceID: 14022}
+      Script: {instanceID: 14026}
     - Class: 114
-      Script: {instanceID: 14108}
+      Script: {instanceID: 14106}
     - Class: 114
-      Script: {instanceID: 14616}
+      Script: {instanceID: 14378}
     - Class: 114
-      Script: {instanceID: 14672}
+      Script: {instanceID: 14614}
     - Class: 114
-      Script: {instanceID: 14970}
+      Script: {instanceID: 14670}
     - Class: 114
-      Script: {instanceID: 15008}
+      Script: {instanceID: 14968}
     - Class: 114
-      Script: {instanceID: 15138}
+      Script: {instanceID: 15006}
     - Class: 114
-      Script: {instanceID: 15558}
+      Script: {instanceID: 15136}
     - Class: 114
-      Script: {instanceID: 16114}
+      Script: {instanceID: 15554}
     - Class: 114
-      Script: {instanceID: 16370}
+      Script: {instanceID: 16110}
     - Class: 114
-      Script: {instanceID: 16410}
+      Script: {instanceID: 16366}
     - Class: 114
-      Script: {instanceID: 16596}
+      Script: {instanceID: 16406}
     - Class: 114
-      Script: {instanceID: 16678}
+      Script: {instanceID: 16592}
     - Class: 114
-      Script: {instanceID: 16930}
+      Script: {instanceID: 16674}
     - Class: 114
-      Script: {instanceID: 17842}
+      Script: {instanceID: 16926}
     - Class: 114
-      Script: {instanceID: 17858}
+      Script: {instanceID: 17838}
     - Class: 114
-      Script: {instanceID: 17944}
+      Script: {instanceID: 17854}
     - Class: 114
-      Script: {instanceID: 18132}
+      Script: {instanceID: 17940}
     - Class: 114
-      Script: {instanceID: 18304}
+      Script: {instanceID: 18128}
     - Class: 114
-      Script: {instanceID: 18362}
+      Script: {instanceID: 18300}
     - Class: 114
-      Script: {instanceID: 18436}
+      Script: {instanceID: 18358}
     - Class: 114
-      Script: {instanceID: 18484}
+      Script: {instanceID: 18432}
+    - Class: 114
+      Script: {instanceID: 18480}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -266,25 +270,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12796}
     - Class: 114
-      Script: {instanceID: 14616}
+      Script: {instanceID: 14614}
     - Class: 114
-      Script: {instanceID: 15558}
+      Script: {instanceID: 15554}
     - Class: 114
-      Script: {instanceID: 15592}
+      Script: {instanceID: 15588}
     - Class: 114
-      Script: {instanceID: 15886}
+      Script: {instanceID: 15882}
     - Class: 114
-      Script: {instanceID: 16410}
+      Script: {instanceID: 16406}
     - Class: 114
-      Script: {instanceID: 16678}
+      Script: {instanceID: 16674}
     - Class: 114
-      Script: {instanceID: 17432}
+      Script: {instanceID: 17428}
     - Class: 114
-      Script: {instanceID: 17858}
+      Script: {instanceID: 17854}
     - Class: 114
-      Script: {instanceID: 18304}
+      Script: {instanceID: 18300}
     - Class: 114
-      Script: {instanceID: 18436}
+      Script: {instanceID: 18432}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -470,7 +474,7 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
-      Hash: aa2a10b4a239c783a2707941685ebb63
+      Hash: d99e2d726821e2ad71497c11beb40d2a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LevelManager
@@ -1034,7 +1038,7 @@ ScriptsOnlyBuild:
     className: PlayerInputEditor
   - hash:
       serializedVersion: 2
-      Hash: b537a689af9b23beea4b4f8764b31c9b
+      Hash: d3c5295db0a6c8d746d2ba321dfc7f79
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AssetsPurchasedController
@@ -1116,12 +1120,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Game.Foundation.dll
     namespaceName: UnityEngine.GameFoundation
     className: SpriteAssetsDetailDefinition
-  - hash:
-      serializedVersion: 2
-      Hash: c26051ed616b58b38b295b6733fa5485
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: DispatchTrain
   - hash:
       serializedVersion: 2
       Hash: e63944317d2f5958e31963668bb29158
@@ -1380,12 +1378,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Game.Foundation.dll
     namespaceName: UnityEngine.GameFoundation
     className: AudioClipAssetsDetailDefinition
-  - hash:
-      serializedVersion: 2
-      Hash: 0f0098d72cb1ff23ece78adddca72b2b
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: AssetButtonClickedTrigger
   - hash:
       serializedVersion: 2
       Hash: 4a639215e29265dd99e4fed19e3fa9f4
